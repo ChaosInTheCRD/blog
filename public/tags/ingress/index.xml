@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ingress on Blog</title>
+    <link>https://blog.chaosinthe.dev/tags/ingress/</link>
+    <description>Recent content in Ingress on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Feb 2020 10:43:56 +0000</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/tags/ingress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lets direct Kubernetes traffic with... Contour? 🚦</title>
+      <link>https://blog.chaosinthe.dev/posts/first-posts/</link>
+      <pubDate>Mon, 03 Feb 2020 10:43:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/first-posts/</guid>
+      <description>&lt;p&gt;A ground-up exploration of containers, Kubernetes and web traffic routing awaits!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

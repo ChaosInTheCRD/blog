@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Platform Component on Blog</title>
+    <link>https://blog.chaosinthe.dev/tags/platform-component/</link>
+    <description>Recent content in Platform Component on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 25 Feb 2020 19:16:56 +0000</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/tags/platform-component/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Antrea: Giving My Pods A Voice</title>
+      <link>https://blog.chaosinthe.dev/posts/03-antrea/</link>
+      <pubDate>Tue, 25 Feb 2020 19:16:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/03-antrea/</guid>
+      <description>&lt;p&gt;For the love of god&amp;hellip; someone please tell me, what is a CNI?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Lets direct Kubernetes traffic with... Contour? 🚦</title>
+      <link>https://blog.chaosinthe.dev/posts/first-posts/</link>
+      <pubDate>Mon, 03 Feb 2020 10:43:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/first-posts/</guid>
+      <description>&lt;p&gt;A ground-up exploration of containers, Kubernetes and web traffic routing awaits!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

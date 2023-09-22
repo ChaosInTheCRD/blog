@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>When disaster strikes, count on... Velero? - Blog</title>
+
+    
+    
+    <meta name="description" content="The open source tool that makes backing up your Kubernetes Cluster plain sailing!" />
+    <meta name="author" content="" />
+    
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet">
+    <script src="https://unpkg.com/@master/style@1.5.0"></script>
+    <script src="https://unpkg.com/@master/styles@1.13.0"></script>
+    <script src="https://unpkg.com/master-styles-group"></script>
+    <script src="https://unpkg.com/themes.js"></script>
+    <script>window.themes = window.themes || new window.Themes()</script>
+
+    <style>
+        :root {
+            --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+    </style></head>
+<body class="bg:fade-84@dark font:fade-16@dark font:sans">
+    <nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000">
+    <div class="
+        h:full
+        w:full
+        max-w:1200
+        mx:auto
+        px:32
+        d:flex
+        align-items:center
+    ">
+        <div>
+            <a href="/" class="mr-3 font:extralight">
+              
+              Blog
+              
+            </a>
+        </div>
+
+        <div class="ml:auto">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+<div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
+        <div class="max-w:700 w:full box:content-box">
+<article class="box:border-box pt:32">
+    <header class="mb:32">
+        <div class="font:40 font:extrabold">When disaster strikes, count on... Velero?</div>
+        <div class="mt:16 f:fade-60">
+            <time>Apr 16, 2020</time>
+            </div>
+    </header><div class="
+    _:where(a):hover{text-decoration-color:fade}
+    _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+    _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+    _:where(code){font:90%;_v:middle}
+    _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+    _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+    _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+    _:where(h1){font:40;_font:extrabold}
+    _:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+    _:where(h1,h2,h3,h4,h5,h6){mt:2em}
+    _:where(h2){mb:1em;_font:32}
+    _:where(h3){font:24}
+    _:where(h4){font:20}
+    _:where(h5){font:16}
+    _:where(h6){font:14}
+    _:where(li)::marker{font:fade-44;_font:fade-68@dark}
+    _:where(li){pl:.375em}
+    _:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+    _:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+    _:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+    >:first-child{mt:0!}
+    _:where(pre){p:20;_r:8;_overflow:auto}
+    _:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+    _:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+    _:where(table){width:full;_border-spacing:0}
+    _:where(td){v:baseline}
+    _:where(td,th):first-child{pl:0}
+    _:where(td,th):last-child{pr:0}
+    _:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+    _:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+    _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+    _:where(ul){list-style-type:disc}
+    _:where(ul,ol,blockquote){pl:1.5em}
+    _:where(video,img){max-width:full}
+    _:where(a,mark){text-underline-offset:3}
+    _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
+"><p>The open source tool that makes backing up your Kubernetes Cluster plain sailing!</p>
+<h5 id="todays-post-anthem">Todays Post Anthem</h5>
+<!-- raw HTML omitted -->
+<p><em>Please, don&rsquo;t you rock my boat (or kubernetes cluster)
+🥁</em></p>
+<p>Well surprise surprise, it looks like I&rsquo;m back! Not at all the length of time that I was planning to be away for, but certain events (that I&rsquo;m sure you will not want to spend another minute hearing about) led me to put our curious voyage together through the mystical universe of cloud-native, on the back burner for a little while. Now now, of course that does not mean that I haven&rsquo;t been exploring further; in fact, quite the contrary.</p>
+<h3 id="so-what-have-i-been-up-to">So what have I been up to?</h3>
+<p>That&rsquo;s a great question! The past few weeks has actually given me a considerable amount of time to play around with a selection of different projects; some of them more productive than others; but alas, many of them could very happily overviewed on this blog, without having me veer too far off topic. Hopefully over the next few weeks, I will take strides to write some chapters on WTH explaining them. To tease your taste buds, here is a sneak preview of what I have been up to:</p>
+<ul>
+<li>Migration of Kubernetes workloads away from GCP, onto a freshly squeezed kubeadm-based home server 🍋</li>
+<li>The curious case of the kettle in the kitchen that corrupted the single-node etcd cluster 🔌⚡️</li>
+<li>Redesigning Kubernetes to be a Highly available, medusa-like god figure 🦹🏻‍♀️</li>
+<li>Securing Dashboards with OAuth2 Proxy magic 🐇</li>
+</ul>
+<h2 id="enough-chit-chat-tell-me-about-velero">Enough chit chat, tell me about Velero</h2>
+<p>Okay, okay I hear you, listening to my invalid excuses isn&rsquo;t much fun for anyone. But funnily enough, neither is system failure. And what&rsquo;s worse than system failure? I&rsquo;ll tell you for free; system failure with no disaster recovery solution! No disaster recovery solution, mitigation, or protection, for the kubernetes empire that you have worked tirelessly to setup over many months, if not years. But this begs the question; if your workloads are running in ephemeral containers, why not treat your cluster as an ephemeral beast as well?</p>
+<h3 id="ephemeral-what-the-heptio">Ephemeral? What the Heptio?</h3>
+<p>In the world of cloud native, containers by and large are treated to be ephemeral entities. In essence, this means their lifetime is viewed to be very short, before dying a valiant death. For this reason, data that we want to persist after a said death, to be used by the next container that comes along, is given its own dedicated resource to live in. For Kubernetes, this resource is called a persistent volume (PV), and solves many headaches. Try deploying <a href="https://whattheheptio.com/2020/03/04-prometheus/">Grafana</a> dashboards on Kubernetes without any persistent storage; you&rsquo;ll see what I mean!</p>
+<h3 id="and-my-kubernetes-manifests-where-are-they-stored-">And my Kubernetes Manifests&hellip; Where are they stored? 💾</h3>
+<p>Aha! now you&rsquo;re asking some important questions. The Kubernetes <a href="https://devspace.cloud/docs/cli/deployment/kubernetes-manifests/what-are-manifests">manifests</a>, are a big stack of yaml files that are presented to the API server. They describe the what, when, how and why of every application running on the cluster, and are stored on a database called <a href="https://etcd.io/">etcd</a>. Without going into this too deeply (I shall save it for another instalment), this a distributed, reliable key-value store; that is accessible cluster-wide. Due to its distributed nature, etcd usually runs in a cluster model of multiple nodes; just like kubernetes. Most commonly, this cluster is set up as a selection of docker containers. Containers everywhere!</p>
+<p>So what happens when you have a single node etcd cluster that has its data corrupted? What happens when the power goes out in your house, and you power your cluster back on to find that your etcd node isn&rsquo;t responding? Well, of course i&rsquo;m talking from experience, so I can tell you. You cry for a while, and then get up and say; looks like we&rsquo;ll have to just build all over again.</p>
+<!-- raw HTML omitted -->
+<h3 id="planning-for-the-inevitable">Planning for the inevitable</h3>
+<p>Well guess what, in the world of Kubernetes, disaster recovery is not something you should think about on day 2, or day 1&hellip; it should be thought out and implemented on day 0. The beauty of treating your containers as ephemeral, is that they can fail relatively frequently, and kubernetes will spin up new ones to take their place; mounting the persistent data in the appropriate places. But as highlighted by the etcd anecdote&hellip; my cluster would maybe benefit from taking some inspiration from this &rsquo;live fast, die young&rsquo; attitude that the containers it runs have adopted. Its about time we designed our cluster with failure in mind. Wouldn&rsquo;t it be great to have our Kubernetes resources declaratively backed up in an automated fashion. Sounds great! Well&hellip; I hear you thinking &ldquo;What the Heptio? How do I do that?&rdquo;&hellip; Velero, take centre stage.</p>
+<h2 id="please-dont-you-rock-my-boat-">Please don&rsquo;t you rock my boat ⛵️</h2>
+<figure><img src="/img/05-Velero/velero.png"/>
+</figure>
+
+<p>So we have deployed our highly-available kubernetes cluster; and we stand triumphantly over our containerised splendor&hellip; 3 master nodes, ready to serve our army of workers deployed beneath them, whatever the weather. But just in case our cluster can&rsquo;t quite handle the storm, let <a href="https://velero.io">Velero</a> be your vessel to guide you through.</p>
+<p>Giving you the capability to schedule automatic backups at recurring intervals, you can direct this tool to store a copy of whatever Kubernetes resource you desire. Whether it be persistent volumes, all namespaces, specific namespaces, the whole cluster with every nook and cranny; you name it, you can do it. The tool then enables the user to restore these resources back to the cluster at any time. The tool also supports the migration of these resources to other clusters, so you can save yourself the headache of starting from scratch with every new kubernetes instance.</p>
+<h3 id="but-where-are-those-backups-going-">But where are those backups going? 🤔</h3>
+<p>Good question. These backups are capable of going to a selection of supported object stores, from an array of public cloud and on-premise storage providers. These include AWS S3, Google Cloud Storage, Portworx and OpenEBS. What intrigued me most is, some third-party S3-compatible object store providers also work. So I was able to set this up to for my <a href="https://min.io/">Minio</a>, and avoid those nasty public cloud prices 🤭.</p>
+<h3 id="so">So&hellip;</h3>
+<p>It sounds like this is the solution to all our problems! So how do we use it? Does it work as expected?&hellip; Lets find out.</p>
+<h2 id="time-to-give-it-a-whirl-">Time to give it a whirl 🌀</h2>
+<p>So if you have a look at the <a href="https://velero.io/docs/v1.3.2/index.html">overview</a> documentation, we can see that Velero uses a client-server architecture, deploying a server that runs on the cluster upon install, after a client binary has been setup on the users local machine.</p>
+<p>The basic install shows us that we can simply go ahead and install Velero on any machine that has kubectl access to the cluster you want to backup. I used MacOS, so installed the Velero client tool with the <a href="https://brew.sh/">brew</a> package manager. Otherwise, the <a href="https://github.com/vmware-tanzu/velero/releases/latest">latest release</a> tarball for your platform can be downloaded from Github.</p>
+<p>From there, you need to setup and configure the object store, choosing from the list of providers mentioned above. I used minio, which provides AWS S3 compatible storage.</p>
+<p>You will then need to perform a <code>velero install</code> command from your chosen client, with added parameters that describe your object store location. In my case the <code>install</code> command with flags looked like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>what@heptio:~$ velero install \    
+</span></span><span style="display:flex;"><span>    --provider aws \ # name of provider
+</span></span><span style="display:flex;"><span>    --plugins velero/velero-plugin-for-aws:v1.0.0 \ # the plugin velero needs to use for minio
+</span></span><span style="display:flex;"><span>    --bucket velero \ # the name of the minio bucket
+</span></span><span style="display:flex;"><span>    --secret-file ./credentials-velero \ # the credentials for the minio server to be stored in a secret
+</span></span><span style="display:flex;"><span>    --backup-location-config region=minio,s3ForcePathStyle=&#34;true&#34;,s3Url=http://192.168.0.210:9000 # specifying the location of the bucket (region and IP)
+</span></span></code></pre></div><h3 id="success-now-what-to-backup-first">Success! Now what to backup first&hellip;</h3>
+<p>So now there should be a namespace on the cluster called <code>velero</code>, and the command <code>velero get backup-locations</code> should list the object store of your choosing 😎.</p>
+<p>Now this is where things get really slick. So we need something to backup that will test the power this tool really wields, right? Well I thought to myself; how about that <a href="https://www.weave.works/oss/scope/">Weave Scope</a> namespace I have lying on my cluster, that I haven&rsquo;t really had the time to mess with yet. Sounds good. worst case; no important config lost 🙂.</p>
+<h4 id="1-creating-the-backup-before-wreaking-havoc-">1. Creating the backup before wreaking havoc 🧨</h4>
+<p>As seen in the animation below, creating the backup is a simple case of telling the client: the name of the backup, and what resources should be included within it. Once this has been carried out, you should be notified that your backup request has been submitted, hurrah! You can then call <code>velero get backups</code> to check that it has completed successfully. Bare in mind that the time to backup after submission will depend on the size of the resources being backed up, as well as the network connection to the object store.</p>
+<p>Once the backup is shown as <code>Completed</code>, you can go ahead and start creating problems for yourself. <code>kubectl scale deployment chaos-monkeys --replicas=1000</code> begins to ring in your eardrums 😼.</p>
+<figure><img src="/img/05-Velero/velero-backup.gif"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>what@heptio:~$ velero create backup weave --include-namespaces weave 
+</span></span><span style="display:flex;"><span># creates the backup
+</span></span><span style="display:flex;"><span>what@heptio:~$ velero get backups
+</span></span><span style="display:flex;"><span># fetches the backups, and shows their status
+</span></span><span style="display:flex;"><span>what@heptio:~$ kubectl delete ns weave
+</span></span><span style="display:flex;"><span># deletes the namespace... let the chaos begin
+</span></span></code></pre></div><h4 id="2-dont-panic-and-fall-back-on-velero-">2. Don&rsquo;t panic, and fall back on Velero 🙆‍♂️</h4>
+<p>So we&rsquo;ve deleted the namespace, its time to panic. In fact no, it certainly is not time to panic. You were cunning, and planned for disaster on day 0, rather than day 2! Lets make the magic happen.</p>
+<p>As shown in the animation below, I have lost the namespace <code>weave</code>, and if I don&rsquo;t get this sorted now; I will be crying myself to sleep, knowing that my users are unable to view the cluster resources zipping around in real time (don&rsquo;t worry, i&rsquo;ll do a post on Scope at some point; it&rsquo;s really cool).</p>
+<p>Fear not! We created our backup with Velero, and we&rsquo;re not afraid ot use it. A simple <code>velero restore create</code> command is all it takes; and before you know it&hellip; look! Your namespace is right back where you left it! No <code>CrashLoopBackoffs</code>,<code>Pending</code> or <code>Error</code> pod statuses to worry about here 👌.</p>
+<figure><img src="/img/05-Velero/velero-restore.gif"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>what@heptio:~$ velero restore create --from-backup weave
+</span></span><span style="display:flex;"><span># All we need to get <span style="color:#e6db74">&#39;backup&#39;</span> and running 😏
+</span></span></code></pre></div><h2 id="wrapping-up">Wrapping up</h2>
+<p>So, thank you for following along my anecdotal overview of Velero, and how I managed to stumble upon a truly magnificent tool, that has already saved my bacon a couple of times. The best part is that I have only scratched the surface of what Velero is capable of, and I will leave it to you with regards to taking your disaster recovery journey further into the abyss ✨.</p>
+<p>As is tradition with these posts, I have chosen a video that would be worth watching if you want to dive further into the topic in a more practical fashion - check out the TGI Kubernetes Episode at the bottom of the page. It&rsquo;s definitely worth a watch.</p>
+<p>Finally, a big thank you to members of the Velero team that helped me with some of the finer details within this post. I would also like to shout out a podcast hosted by one of the Engineers for Velero, Carlisia Campos. <a href="https://www.youtube.com/playlist?list=PL7bmigfV0EqSh-btGOy8BLG3lsF0ylfZ-">The Podlets</a> is a weekly video podcast, where Carlisia and guests explore cloud native, one buzzword at a time.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/tj5Ey2bHsfM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div></div></article>
+<footer class="py:24">
+    <div class="f:fade-30 f:14 mb:8"></div>
+    <div class="f:fade-60 f:12">Theme <a class="f:bold" href="https://github.com/serkodev/holy" _target="_blank">Holy</a></div>
+</footer></div>
+    </div>
+</body>
+
+</html>

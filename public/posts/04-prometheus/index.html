@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Prometheus and Grafana: The Metric Monitoring Titans - Blog</title>
+
+    
+    
+    <meta name="description" content="Your cloud native empire will never have looked so beautiful&hellip;" />
+    <meta name="author" content="" />
+    
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet">
+    <script src="https://unpkg.com/@master/style@1.5.0"></script>
+    <script src="https://unpkg.com/@master/styles@1.13.0"></script>
+    <script src="https://unpkg.com/master-styles-group"></script>
+    <script src="https://unpkg.com/themes.js"></script>
+    <script>window.themes = window.themes || new window.Themes()</script>
+
+    <style>
+        :root {
+            --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+    </style></head>
+<body class="bg:fade-84@dark font:fade-16@dark font:sans">
+    <nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000">
+    <div class="
+        h:full
+        w:full
+        max-w:1200
+        mx:auto
+        px:32
+        d:flex
+        align-items:center
+    ">
+        <div>
+            <a href="/" class="mr-3 font:extralight">
+              
+              Blog
+              
+            </a>
+        </div>
+
+        <div class="ml:auto">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+<div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
+        <div class="max-w:700 w:full box:content-box">
+<article class="box:border-box pt:32">
+    <header class="mb:32">
+        <div class="font:40 font:extrabold">Prometheus and Grafana: The Metric Monitoring Titans</div>
+        <div class="mt:16 f:fade-60">
+            <time>Mar 4, 2020</time>
+            </div>
+    </header><div class="
+    _:where(a):hover{text-decoration-color:fade}
+    _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+    _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+    _:where(code){font:90%;_v:middle}
+    _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+    _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+    _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+    _:where(h1){font:40;_font:extrabold}
+    _:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+    _:where(h1,h2,h3,h4,h5,h6){mt:2em}
+    _:where(h2){mb:1em;_font:32}
+    _:where(h3){font:24}
+    _:where(h4){font:20}
+    _:where(h5){font:16}
+    _:where(h6){font:14}
+    _:where(li)::marker{font:fade-44;_font:fade-68@dark}
+    _:where(li){pl:.375em}
+    _:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+    _:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+    _:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+    >:first-child{mt:0!}
+    _:where(pre){p:20;_r:8;_overflow:auto}
+    _:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+    _:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+    _:where(table){width:full;_border-spacing:0}
+    _:where(td){v:baseline}
+    _:where(td,th):first-child{pl:0}
+    _:where(td,th):last-child{pr:0}
+    _:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+    _:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+    _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+    _:where(ul){list-style-type:disc}
+    _:where(ul,ol,blockquote){pl:1.5em}
+    _:where(video,img){max-width:full}
+    _:where(a,mark){text-underline-offset:3}
+    _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
+"><p>Your cloud native empire will never have looked so beautiful&hellip;</p>
+<h5 id="todays-post-anthem">Todays Post Anthem</h5>
+<!-- raw HTML omitted -->
+<p><em>By &lsquo;writing&rsquo;&hellip; of course I mean metrics&hellip;</em></p>
+<p>In my last article, I mentioned an open-source platform called Prometheus. Now if you are in any way involved with the cloud native ecosystem, you will probably have come across it. After all, it shares its name with a Greek Titan that starred in one of the world famous &lsquo;Alien&rsquo; movies 👽. But then I tell you that it is a monitoring and alerting toolkit that includes data scraping and storing, it&rsquo;s own querying language called &lsquo;PromQL&rsquo; and a built in alert manager. Yes, that sounds great&hellip; but&hellip; what does that mean? Well here we go again!</p>
+<!-- raw HTML omitted -->
+<h2 id="prometheus-what-the-heptio-">Prometheus&hellip; What the Heptio? 🤷‍♂️</h2>
+<p>Now let&rsquo;s build ourselves a scenario. You&rsquo;re like me, and you&rsquo;ve just set up your first all singing, all dancing kubernetes cluster on GKE 🎵. Whether you know it or not (I definitely didn&rsquo;t to begin with), this is a very simple, turnkey experience. What I mean by this is that from go, a lot of the clusters components are setup for you, and their presence just fades into the background (within the darkest depths of the Google Cloud Platform 👻).</p>
+<p>You think to yourself, &ldquo;I wonder how my cluster is performing&hellip; What pods are using up the most memory, how much traffic am I getting through my contour ingress controller?&rdquo;. Well.. that certainly is an interesting question. You have a scroll through the GCP web UI and the built in functions just throw it into your lap and you don&rsquo;t need to spare a second thought. But&hellip; where are those metrics really coming from? and if you hadn&rsquo;t asked yourself this question&hellip; and then spun up something more vanilla afterwards, like Kubeadm; why aren&rsquo;t these same capabilities just given to to me in the same way? Now we&rsquo;re talking 🕵🏻‍♂️.</p>
+<!-- raw HTML omitted -->
+<p><a href="https://github.com/prometheus/prometheus">Prometheus</a> is a set of tools that you&rsquo;ll want to get for a thorough logging and monitoring experience on many container orchestrators. And what makes it so widely acclaimed? Well, a couple of things. First of all it has a powerfully simple querying language, so it&rsquo;s users can analyse their Kubernetes, Docker Swarm, Apache Mesos, Cloud Foundry&hellip; or just Kubernetes 🙃 clusters down to the minute details with ease.</p>
+<p>Whats more? Prometheus was the second project to be officially supported by the Cloud Native Computing Foundation, along with Kubernetes and Envoy (mentioned in the first article for this <a href="https://www.whattheheptio.com/2020/02/first-posts/">blog</a>, take a look). This support gives a company that plans to integrate its applications with Prometheus tooling, the assurance that it will be an industry standard going into the future.  For this reason, this makes it a perfect candidate for a metrics provider, and it has seen wide spread adoption; with people speculating that the number of organisations using it could be in the tens of thousands.</p>
+<h2 id="so-how-is-all-of-this-possible">So how is all of this possible?</h2>
+<p>So as I said in the previous section, Prometheus is far more than a Kubernetes concept. It doesn&rsquo;t stipulate on the application running, and it has the capability of using metrics on almost any application provided it is configured correctly. In general, it requires that the workload provides the metrics for it using two components:</p>
+<ul>
+<li>Prometheus Exporter: These are libraries and servers that do the job of exporting the metrics generated by applications/services in your environment as Prometheus friendly metrics 😊</li>
+<li>Prometheus HTTP Endpoint: The exporter then sends these metrics to a HTTP endpoint, which is a port on the applications http address that sits open, providing the metrics that Prometheus requires for the amazing stuff it&rsquo;ll do later on.</li>
+</ul>
+<p>Ok, so how does Prometheus get hold of these metrics that are now spilling out of the configured port? Well, Prometheus has a server application conveniently named &lsquo;Prometheus Server&rsquo;, that &lsquo;scrapes&rsquo; up the metrics sitting on the aforementioned ports, organises them into a time series database (TSDB), and throws it into a storage volume somewhere, amazing</p>
+<!-- raw HTML omitted -->
+<h3 id="but-i-thought-you-said-there-was-an-alert-manager">But I thought you said there was an alert manager?</h3>
+<p>Oh yes, you&rsquo;re right there. Prometheus does indeed have its own dedicated alert manager. Embedded within the Prometheus server are capabilities that allow the user to define alerting rules based on the metrics provide by the cluster. For instance, want to know when there is high request latency for a web page on your server? No problem. This can be done easily if you give the server a correctly configured alert rules yaml. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">groups</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">alert</span>: <span style="color:#ae81ff">HighRequestLatency</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">expr</span>: <span style="color:#ae81ff">job:request_latency_seconds:mean5m{job=&#34;myjob&#34;} &gt; 0.5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">for</span>: <span style="color:#ae81ff">10m</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">severity</span>: <span style="color:#ae81ff">page</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">summary</span>: <span style="color:#ae81ff">High request latency</span>
+</span></span></code></pre></div><p>Wow, markdown makes putting yaml in a web article super easy 🆒. Anyway, where was I&hellip; ah yes.</p>
+<p>Once this has been deployed to the prometheus server, any metrics that meet these alert conditions will send the relevant alert to the manager. The alert manager can be reached easily through a web ui, where you can view all the alerts sent from the server, or there is something jazzy called the Alertmanager webhook receiver 😲. What does this mean? well it means you can have your alerts delivered to a service of your choice. such as? well, you name it; they do it. SMS, Email, Telegram, Slack, Microsoft Teams, ServiceNow, Zoom, Alibaba Dingtalk, Rocket Chat (looks so awesome). The list goes on. Now you truly can make yourself feel like you have your own starship enterprise.</p>
+<figure><img src="/img/04-Prometheus/homerdoomed.gif"/>
+</figure>
+
+<h2 id="promql-where-the-real-fun-begins-">PromQL&hellip; Where the real fun begins 🕺</h2>
+<p>As I mentioned, the Alertmanager does have it&rsquo;s own dedicated web-ui, and so does the Prometheus server. When you access the Prometheus web-ui (through a default port of 9090), you&rsquo;re faced with a pretty simple, yet bland looking interface. It has a simple text input box labelled &lsquo;Expression&rsquo;, with a button below it that says &lsquo;Execute&rsquo;. Very exciting, let&rsquo;s start playing.</p>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code class="language-PromSQL" data-lang="PromSQL">http_requests_total{environment=~&#34;staging|testing|development&#34;,method!=&#34;GET&#34;}
+</code></pre><h2 id="but-i-was-hoping-for-something-prettier-">But I was hoping for something prettier 💋</h2>
+<p>Well to be honest&hellip; so was I. But don&rsquo;t worry, I have good news!</p>
+<p>It&rsquo;s time for another mystical platform name into the mix&hellip; it&rsquo;s slick, it&rsquo;s shiny, it&rsquo;s&hellip;</p>
+<figure><img src="/img/04-Prometheus/Grafana.png"/>
+</figure>
+
+<!-- raw HTML omitted -->
+<p>So welcome to the magical land of <a href="https://github.com/grafana/grafana">Grafana</a>. Where you can make use of PromSQL and the prometheus server APIs to visualise your generated metrics on highly configurable dashboards. That&rsquo;s right, we&rsquo;ve just taken your Starship Enterprise to the next level 🛰. Each dashboard consists of one or more panels that can be arranged into rows. Of course usually each panel on the dashboard is related to each other. So you would have for instance a dashboard of panels for information regarding your kubernetes clusters CPU/Mem/Disk utilisation, and another dashboard that displays the ingresses of your applications sitting within the cluster. Then you could even have another dashboard that showed the geographical location of each request to your site in real time&hellip; yes I absolutely need to look into doing it for this site 🙌. The sky really is the limit&hellip; if it&rsquo;s data that can be hoovered up by prometheus into the database, it can be visualised on Grafana with some configuration. And what&rsquo;s even cooler? You can make specific dashboards public so that you can show them to friends&hellip; or uh&hellip; colleagues easily. Don&rsquo;t worry though, you will still have full access to your precious infrastructure under lock and key.</p>
+<p>I hear you, I hear you, you want to see what this interface looks like in real life. Well good news! Thanks to the open-source attitude some organisations take towards these platforms, certain dashboards are available for anyone to look at. For instance, <a href="https://monit-grafana-open.cern.ch/d/000000523/home?orgId=16">CERN</a>, <a href="https://devstats.cncf.io/">CNCF</a>, the <a href="https://weather.hiveeyes.org/grafana/d/start/welcome?kiosk&amp;orgId=1&amp;refresh=15m">Beehive Project</a> and many more make some of their dashboards fully accessible for the world to see. I&rsquo;ve just wasted the last 30 minutes looking around them and they&rsquo;re amazing, so feel free to give them a look if you have any more free time.</p>
+<h2 id="im-sold-im-sold-how-do-i-get-it-on-my-kubernetes-cluster">I&rsquo;m sold, i&rsquo;m sold! How do I get it on my Kubernetes cluster?</h2>
+<p>How do you get it? Well that&rsquo;s maybe even better than the joys of the previous section. <a href="https://github.com/prometheus/prometheus">This</a> github repository named kube-prometheus is all you need to get yourself started with your very own Prometheus server, web UI, AlertManager, and even Grafana, to start viewing your empire like a king on day 0. I used it on GKE, and it was super easy to get going. In fact I feel this task was when things started to click in my head about kubernetes as a platform, which was very rewarding.</p>
+<h2 id="scraping-up-the-last-bits-and-pieces">&lsquo;Scraping&rsquo; up the last bits and pieces</h2>
+<p>So that&rsquo;s it. We&rsquo;ve gained some clarity on yet another cloud native tool, and taken a shallow dive into what is possible when Kubernetes teams up with Kubernetes and Grafana to give nerds like myself a full view of their estate; but also a window view for anyone else interested. For any organisation running Kubernetes or a cloud-native platform like it, these tools really are a no brainer&hellip; they are the industry standard&hellip; and well&hellip; why wouldn&rsquo;t you want to have what I just showed you? It&rsquo;s so awesome!</p>
+<p>I&rsquo;ll leave you with another Youtube video, as this tends to be the standard way to finish these articles. Tom Wilkie, one of the Prometheus Developers, gave a great talk back in 2018, which gives a more thorough and detailed tour of the Prometheus world, and how that can be linked up with Grafana. So I hope you enjoyed this weeks instalment, and as always any feedback at all is more than welcome.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/kG9p417sC3I" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div></div></article>
+<footer class="py:24">
+    <div class="f:fade-30 f:14 mb:8"></div>
+    <div class="f:fade-60 f:12">Theme <a class="f:bold" href="https://github.com/serkodev/holy" _target="_blank">Holy</a></div>
+</footer></div>
+    </div>
+</body>
+
+</html>

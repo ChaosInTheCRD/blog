@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Blog</title>
+    <link>https://blog.chaosinthe.dev/tags/</link>
+    <description>Recent content in Tags on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 30 May 2020 22:13:36 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Cloud</title>
+      <link>https://blog.chaosinthe.dev/tags/google-cloud/</link>
+      <pubDate>Sat, 30 May 2020 22:13:36 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/google-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://blog.chaosinthe.dev/tags/kubernetes/</link>
+      <pubDate>Sat, 30 May 2020 22:13:36 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Practical</title>
+      <link>https://blog.chaosinthe.dev/tags/practical/</link>
+      <pubDate>Sat, 30 May 2020 22:13:36 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/practical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Disaster Recovery</title>
+      <link>https://blog.chaosinthe.dev/tags/disaster-recovery/</link>
+      <pubDate>Thu, 16 Apr 2020 16:16:01 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/disaster-recovery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>https://blog.chaosinthe.dev/tags/tools/</link>
+      <pubDate>Thu, 16 Apr 2020 16:16:01 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monitoring</title>
+      <link>https://blog.chaosinthe.dev/tags/monitoring/</link>
+      <pubDate>Wed, 04 Mar 2020 11:00:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Networking</title>
+      <link>https://blog.chaosinthe.dev/tags/networking/</link>
+      <pubDate>Tue, 25 Feb 2020 19:16:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Platform Component</title>
+      <link>https://blog.chaosinthe.dev/tags/platform-component/</link>
+      <pubDate>Tue, 25 Feb 2020 19:16:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/platform-component/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Architecture</title>
+      <link>https://blog.chaosinthe.dev/tags/architecture/</link>
+      <pubDate>Mon, 10 Feb 2020 10:43:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ingress</title>
+      <link>https://blog.chaosinthe.dev/tags/ingress/</link>
+      <pubDate>Mon, 03 Feb 2020 10:43:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/tags/ingress/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

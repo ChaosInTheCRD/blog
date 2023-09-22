@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Disaster Recovery on Blog</title>
+    <link>https://blog.chaosinthe.dev/tags/disaster-recovery/</link>
+    <description>Recent content in Disaster Recovery on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Apr 2020 16:16:01 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/tags/disaster-recovery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When disaster strikes, count on... Velero?</title>
+      <link>https://blog.chaosinthe.dev/posts/05-velero/</link>
+      <pubDate>Thu, 16 Apr 2020 16:16:01 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/05-velero/</guid>
+      <description>&lt;p&gt;The open source tool that makes backing up your Kubernetes Cluster plain sailing!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Build your own Kubernetes-based Boutique - Blog</title>
+
+    
+    
+    <meta name="description" content="So you want to commandeer your very own kubernetes vessel&hellip; but don&rsquo;t know where to start? Look no further." />
+    <meta name="author" content="" />
+    
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet">
+    <script src="https://unpkg.com/@master/style@1.5.0"></script>
+    <script src="https://unpkg.com/@master/styles@1.13.0"></script>
+    <script src="https://unpkg.com/master-styles-group"></script>
+    <script src="https://unpkg.com/themes.js"></script>
+    <script>window.themes = window.themes || new window.Themes()</script>
+
+    <style>
+        :root {
+            --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+    </style></head>
+<body class="bg:fade-84@dark font:fade-16@dark font:sans">
+    <nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000">
+    <div class="
+        h:full
+        w:full
+        max-w:1200
+        mx:auto
+        px:32
+        d:flex
+        align-items:center
+    ">
+        <div>
+            <a href="/" class="mr-3 font:extralight">
+              
+              Blog
+              
+            </a>
+        </div>
+
+        <div class="ml:auto">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+<div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
+        <div class="max-w:700 w:full box:content-box">
+<article class="box:border-box pt:32">
+    <header class="mb:32">
+        <div class="font:40 font:extrabold">Build your own Kubernetes-based Boutique</div>
+        <div class="mt:16 f:fade-60">
+            <time>May 30, 2020</time>
+            </div>
+    </header><div class="
+    _:where(a):hover{text-decoration-color:fade}
+    _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+    _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+    _:where(code){font:90%;_v:middle}
+    _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+    _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+    _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+    _:where(h1){font:40;_font:extrabold}
+    _:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+    _:where(h1,h2,h3,h4,h5,h6){mt:2em}
+    _:where(h2){mb:1em;_font:32}
+    _:where(h3){font:24}
+    _:where(h4){font:20}
+    _:where(h5){font:16}
+    _:where(h6){font:14}
+    _:where(li)::marker{font:fade-44;_font:fade-68@dark}
+    _:where(li){pl:.375em}
+    _:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+    _:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+    _:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+    >:first-child{mt:0!}
+    _:where(pre){p:20;_r:8;_overflow:auto}
+    _:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+    _:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+    _:where(table){width:full;_border-spacing:0}
+    _:where(td){v:baseline}
+    _:where(td,th):first-child{pl:0}
+    _:where(td,th):last-child{pr:0}
+    _:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+    _:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+    _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+    _:where(ul){list-style-type:disc}
+    _:where(ul,ol,blockquote){pl:1.5em}
+    _:where(video,img){max-width:full}
+    _:where(a,mark){text-underline-offset:3}
+    _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
+"><p>So you want to commandeer your very own kubernetes vessel&hellip; but don&rsquo;t know where to start? Look no further.</p>
+<h5 id="todays-post-anthem">Todays Post Anthem</h5>
+<!-- raw HTML omitted -->
+<p><em>hey, want to go microservice shopping?</em> 🤦‍♂️</p>
+<p>Okay, so I agree. Kubernetes is an exciting concept for those interested in the enterprise computing world and unless you&rsquo;ve been living under a rock for the past year, you have probably heard the name thrown around left, right and centre. In fact, this blog on its own does a pretty good job that. You then begin to delve into the documentation, which talks about the &lsquo;microservice architecture&rsquo; way of life and you start to think, &ldquo;What the Heptio? How am I meant to just quickly develop my own microservices for the sake of trying out this platform?&rdquo;. Well this is how I felt, but unfortunately I didn&rsquo;t stumble upon a blog post like this that will now show you a fun way that you can try the fundamentals out for yourself.</p>
+<h4 id="what-ingredients-do-i-need-for-this-exercise">What ingredients do I need for this exercise?</h4>
+<p>All that is required is a google account with either some free credit for <a href="https://cloud.google.com/free">Google Cloud</a>, or a bank card attached. Not to worry though, the cost over the time required for the exercise should be no more than $5. It would also be handy if you had your own unique domain name, but this isn&rsquo;t crucial.</p>
+<!-- raw HTML omitted -->
+<h2 id="lets-deploy-an-online-boutique">Let&rsquo;s deploy an Online Boutique</h2>
+<p>Right, let&rsquo;s begin. The first ingredient that we require on this exciting journey to our publically available shop for the boutique lovers of the world, is a suitably named &lsquo;classy&rsquo; cluster.</p>
+<figure><img src="/img/06-boutique/gke.png"/>
+</figure>
+
+<p>As mentioned in the introduction, we will be making use of Google Cloud and its infamous &lsquo;<a href="https://cloud.google.com/kubernetes-engine">Google Kubernetes Engine</a>&rsquo;. Why Google you ask? Well, there are couple of reasons why I think this is a preferable choice for a beginner user:</p>
+<ul>
+<li>$300 free credit is redeemable from Google to use on their cloud services, so you can <code>kube</code> away to your hearts content for months before paying a penny.</li>
+<li>GKE is the most &lsquo;beginner friendly&rsquo; and simple enterprise Kubernetes service out there at the moment. In my eyes, it&rsquo;s also the most reliable and finished version of the platform.</li>
+<li>We could have used a local kubernetes distributions such as <a href="https://github.com/kubernetes/minikube">minikube</a> or <a href="https://github.com/kubernetes-sigs/kind">kind</a>, but these are not designed for production applications and miss out on some key features.</li>
+</ul>
+<h3 id="install-gcloud-sdk">Install GCloud-SDK</h3>
+<p>Once you have access to the Google Gloud console using your Google Account, the next step will be to create a project in the UI and to <a href="https://cloud.google.com/sdk/install">install and setup the GCloud-SDK</a> from the terminal on your machine. This will allow us to configure Google Cloud projects from the CLI; a handy tool when provisioning your first cluster. Once the install has completed, you should be able to type <code>gcloud init</code>, to connect to your Google account and select the project you made earlier.</p>
+<p>Oh, I almost forgot; you&rsquo;ll also need <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/"><code>kubectl</code></a>. This is a simple binary that will allow us to interact with the kubernetes clusters that we have access to. This is somewhat of the communication layer that you will use for your cluster, once it has been provisioned. One other tool that may also be useful is <a href="https://github.com/ahmetb/kubectx"><code>kubectx</code></a>, which will allow you to switch between kubernetes namespaces with the <code>kubens</code> command and the cluster that you want to control, with <code>kubectx</code>. Feel free to give it a try!</p>
+<figure><img src="/img/06-boutique/kubens.gif"/>
+</figure>
+
+<h3 id="provision-that-cluster-">Provision that Cluster 🚀</h3>
+<p>It is now the moment we have all been waiting for. We have a Google project to host our boutique, as well as a cli to interface with it. We are now at the stage where our cluster is ready to be born out of the fires of the Google data centre.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>gcloud services enable container.googleapis.com
+</span></span><span style="display:flex;"><span># enable the Google Kubernetes Engine service
+</span></span><span style="display:flex;"><span>gcloud container clusters create classy-cluster \
+</span></span><span style="display:flex;"><span>    --enable-autoupgrade \
+</span></span><span style="display:flex;"><span>    --enable-autoscaling --min-nodes=3 --max-nodes=10 \
+</span></span><span style="display:flex;"><span>    --num-nodes=5 --zone=us-central1-a
+</span></span><span style="display:flex;"><span># press the big red button, declaring lift-off!
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>Above you can see the output you should see in your terminal window upon calling these commands (I can only apologise for the scaling, but it shows you what to expect). As you can see, it finishes with the output of <code>kubeconfig entry generated for classy-cluster</code>. Fantastic news! Your cluster should now be addressable with the <code>kubectl get nodes</code> command, which lists the 5 nodes that we created. We&rsquo;re off to the races.</p>
+<!-- raw HTML omitted -->
+<h3 id="time-to-get-boujie">Time to get Boujie</h3>
+<figure><img src="/img/06-boutique/boutique.svg"/>
+</figure>
+
+<p>Earlier in the post, I referred to an &lsquo;<a href="https://github.com/GoogleCloudPlatform/microservices-demo/">Online Boutique</a>&rsquo;, that is deployable on Kubernetes with a few simple steps. Well, this is in fact a demo application for Kubernetes, consisting of no less than 10 separate microservices. Once deployed, you can use the app to browse through some imaginary items, before adding them to a cart and purchasing. The best part is that on GKE, it is super easy to deploy, which makes it perfect for learning purposes.</p>
+<!-- raw HTML omitted -->
+<p>In order to deploy this application, we must first perform a <code>git clone</code> of the github repository, so that we can save a copy of the required kubernetes manifests. This file, written in <a href="https://blog.stackpath.com/yaml/">yaml</a>, instructs to the kubernetes api-server which containers to run, where it can find them, as well as a selection of other parameters such as the ports to be used for the services, the resource requests/limits (cpu and memory) and much more. After cloning, navigate to the &lsquo;release&rsquo; directory, and open the <code>kubernetes-manifests.yaml</code> file, to take a look at the many kinds of declarations it features. This is the file we will be passing to the cluster with kubectl in a moment, so keep hold of it.</p>
+<p>Now that we have our manifests at the ready, we must now create a <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">namespace</a>. These are siphoned off areas of the cluster, intended to organise separate clusters and development teams that are working at the same time. liken them to rooms in a building, or sections in a library. By calling <code>kubectl create namespace boutique</code>, we can create a special little place for our application to sit. If you installed the <code>kubectx</code> application, the <code>kubens</code> command will come in handy here (e.g. <code>kubens boutique</code>). Otherwise, you can type something like <code>kubectl config set-context --current --namespace=boutique</code>, to switch to the <code>boutique</code> namespace using <code>kubectl</code>.</p>
+<p>Finally, let&rsquo;s go ahead and deploy our application on the cluster with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>kubectl apply -f kubernetes-manifests.yaml 
+</span></span><span style="display:flex;"><span># and we<span style="color:#960050;background-color:#1e0010">&#39;</span>re off!
+</span></span></code></pre></div><h3 id="checking-that-were-golden">Checking that we&rsquo;re Golden</h3>
+<p>you should see a list of terminal outputs, informing you that the resources declared in the manifests are being created in the namespace that kubectl is looking at. The command <code>kubectl get pods</code> should bring up all the pods that have been deployed for our application. After a minute or so of the status showing <code>ContainerCreating</code>, they should be up and running.</p>
+<p><strong>Warning:</strong> I experienced some issues with the <code>loadgenerator</code> pod, where it would get stuck in a <code>CrashLoopBackOff</code>, meaning that it was repeatedly crashing during intilisation. I resolved this by using <code>kubectl describe loadgenerator-&lt;unique-pod-id&gt;</code>, which gives some more information about the pod, before performing a <code>kubectl delete pod</code>, which will re-instantuate it. This brought the status to the <code>Running</code> state we are looking for.</p>
+<h3 id="lets-take-a-look-at-our-boutique">Lets take a look at our Boutique!</h3>
+<p>Now that we have all pods up and running, we can call <code>kubectl get services</code>, to take a look at the service objects created thanks to our manifest. In the list of objects that it gives back, you should notice a little service called <code>frontend-external</code>, with its <code>TYPE</code> set to <code>LoadBalancer</code>. It should also have an <code>EXTERNAL-IP</code> assigned to it. If it is set to <code>&lt;pending&gt;</code>, just be patient and use a <code>watch kubectl get service</code> command to wait for an IP to be presented to you. What is happening here is that the Kubernetes api-server is communicating with Googles load balancing service, asking for it to assign a unique IP address to this service endpoint. Pretty cool huh? You should now be able to use the <code>EXTERNAL-IP</code> provided to view your Boutique. Woo-hoo! We did it!</p>
+<figure><img src="/img/06-boutique/storefront.png"/>
+</figure>
+
+<h2 id="hey-check-out-my-store-at-35193255113-">Hey, check out my store at 35.193.255.113 😬</h2>
+<p><strong>Disclaimer: This section requires that you own a domain name that can be assigned to your cluster.</strong></p>
+<p>Yeah, I agree; we&rsquo;re not really going to just give all our pals this IP address on the back of a napkin. Sure, it works&hellip; but it doesn&rsquo;t sound very &lsquo;boutiquey&rsquo; if you ask me. I hear you say, &lsquo;oh, we can just map the IP with an A record to my domain name on the DNS&rsquo;. Well, you would be correct, but I have a more effective &lsquo;kubernetes way&rsquo; to do this part. Introducing the beauty of &lsquo;Ingress&rsquo;.</p>
+<p>This was discussed in the very <a href="https://whattheheptio.com/2020/02/first-posts/">first blog post</a> I made, so it may be worth going back and taking a look if you&rsquo;re interested. In esssence though, the ingress controller is a Kubernetes implementation that allows traffic to be directed to specific service endpoints on the cluster, based on parameters such as the domain and extension that has been entered by the user on the client end. This is very useful for handling a tonne of front-end services through one public facing load balancer (LB) IP address.</p>
+<p>My ingress controller of choice is <a href="https://github.com/projectcontour/contour">Contour</a>, and can simply be deployed using the command below. We will also check that the pods for the deployment are running correctly, as well as list the service of the <code>envoy</code> daemonset, which is the heart of the contour operation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
+</span></span><span style="display:flex;"><span># deploy contour
+</span></span><span style="display:flex;"><span>kubectl -n projectcontour get pods
+</span></span><span style="display:flex;"><span># check that the pods are running
+</span></span><span style="display:flex;"><span>kubectl get -n projectcontour service envoy
+</span></span><span style="display:flex;"><span># list the envoy service, and its LB IP address
+</span></span></code></pre></div><p>When you call the final command, the public IP should be shown for envoy, which is where you want to point your domain name to. Once you have done this, typing <code>host my-k8s-boutique.net</code> with the respective domain should give back the IP of the envoy service. Bare in mind that this may take a little while to update, so don&rsquo;t get impatient like I often do!</p>
+<p>Finally, we can create an ingress manifest, which declares an ingress resource for contour to take note of, giving it the information it needs in order for the traffic of our domain to be forwarded on to the service. A quick <code>kubectl -f boutique-ingress.yaml</code> should get this baby up and running. And as if by magic, we can view our boutique in the web browser through our domain! Now you can flex to your friends with your very own online boutique without repeating the IP to them 34 times. Even though you can&rsquo;t actually buy anything 🤣.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kubernetes.io/ingress.class</span>: <span style="color:#ae81ff">contour</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">frontend-external</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">frontend-external</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">host</span>: <span style="color:#ae81ff">my-k8s-boutique.net  </span> <span style="color:#75715e"># Change this to your domain!</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">backend</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">serviceName</span>: <span style="color:#ae81ff">frontend-external</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">servicePort</span>: <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div><h2 id="persistence-is-a-virtue">Persistence is a Virtue</h2>
+<p>So if you&rsquo;re still with me at this point, I applaud your efforts. While this is a fairly straight forward project, it is still a lot of content to take in at once.</p>
+<p>While digging around our newly christened boutique store, you might have noticed the shopping basket. Sure, looks great; but what happens if the micro-service pod responsible for this functionality dies during a customer shopping spree. <strong>Remember</strong>, pods are designed to be ephemeral, meaning they are not expected to live very long. If you fill the basket with items and then carry out the command <code>kubectl delete pods -l app=redis-cart</code>, the boutique should show some error messages while a new &lsquo;redis-cart&rsquo; pod is being created, before becoming available again. But you&rsquo;ll notice, the items you added to the basket are now gone! How inconvenient.</p>
+<p>This problem occurs because the pod has not been assigned a &lsquo;persistent-volume&rsquo; to store data that will survive the pods lifecycle. This is a resource that maps to a mountpoint on a physical disk such as <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes">Persistent Disks</a> that are used by Google Compute Engine (GCE). So how do we do this to ensure maximum boutiqueness? All that&rsquo;s needed is a short yaml file declaring a request for the storage object, followed by a reference to it in the original <code>kubernetes-manifests.yaml</code> file for the boutique.</p>
+<p>The yaml below shows the persistent volume claim manifest. This is a request to a &lsquo;storage class&rsquo; provider to give the cluster some storage of a specified size. you can view the storage class providers by typing <code>kubectl get storageclasses</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PersistentVolumeClaim</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis-cart</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volume.beta.kubernetes.io/storage-class</span>: <span style="color:#ae81ff">standard</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">accessModes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">ReadWriteOnce</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">requests</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">storage</span>: <span style="color:#ae81ff">10Gi</span>
+</span></span></code></pre></div><p>As you can see above, I have requested a persistent volume called &lsquo;redis-cart&rsquo;, using the storage class &lsquo;standard&rsquo;, which is the storage class installed by default in GKE for using Persistent Disks in GCE. The &lsquo;ReadWriteOnce&rsquo; declaration just means that it can only be mounted as read-write by a single node. This is the default mode and will work for this scenario. I have requested 10gb of storage, which is also plenty for this example. As usual, the <code>kubectl apply -f redis-cart-pvc.yaml</code> command is enough to get it attached to the cluster. We can check that the volume was created by checking for the <code>BOUND</code> status upon calling <code>kubectl get pvc</code>.</p>
+<!-- raw HTML omitted -->
+<p>Now to let the redis-cart deployment make use of this prime real-estate, we need to edit our original <code>kubernetes-manifests.yaml</code>. There are many objects in this file that we don&rsquo;t need to touch, but the section in question can be seen below, with the appropriate edits already in place. You will notice that at the bottom under <code>volumes:</code>, my yaml states a <code>persistentVolumeClaim</code>, as opposed to the original <code>EmptyDir</code>. This is where we need to set it to the name of our PV <code>redis-cart</code>, before saving the yaml file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">### Changes made to Redis Cart so cart data is saved to PV ###</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis-cart</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">redis-cart</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">redis-cart</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:alpine</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">6379</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">readinessProbe</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">periodSeconds</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">tcpSocket</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">6379</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">livenessProbe</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">periodSeconds</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">tcpSocket</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">6379</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/data</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis-data</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">limits</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">256Mi</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">125m</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">requests</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">70m</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">200Mi</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">volumes</span>:                  <span style="color:#75715e"># Where we want to edit!</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis-data</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">persistentVolumeClaim</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">claimName</span>: <span style="color:#ae81ff">redis-cart</span>
+</span></span></code></pre></div><p>Now finally we are ready to go ahead and call our final <code>kubectl apply -f kubernetes-manifests.yaml</code> to do what seemed unthinkable only minutes ago. You have now attached persistent storage to your redis cart! A quick call of <code>kubectl get pods</code> will show the pod in a running state. You can then add items to the basket and try deleting the pod. Once it comes back up, your redis database is back up off the canvas 🥊.</p>
+<h2 id="finishing-up-dont-forget-to-delete-your-cluster">Finishing Up (Don&rsquo;t forget to delete your cluster!)</h2>
+<p>All I can say after that one hell of a slog is congratulations for completing your first ever boutique quality Kubernetes project! We have taken a look into what is required to front up a public-cloud based cluster, as well as the initial steps that are taken to deploy an application using <code>kubectl</code>, before making it publically available.</p>
+<p>Now that we have come to the end of this post, you might want to delete the cluster to ensure you save your pennies for the next exciting run in with Google Cloud. If you want to take things a step further, I would suggest that you maybe look into securing your application with HTTPS traffic. For this you will need a TLS certificate, which can be achieved with ease, thanks to the <a href="https://github.com/jetstack/cert-manager">cert-manager</a> certificate management controller. Past that, you could maybe even take a look at creating a Grafana dashboard that monitors users navigating the site using <a href="https://whattheheptio.com/2020/03/04-prometheus/">Prometheus</a> to scrap metrics. Who knows, the world is your oyster!</p>
+<p>So, without further ado, let me sign off for this latest post, wishing you all the best wherever you are. Oh yes, without forgetting the command to kill the cluster. Cheerio!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>gcloud container clusters delete classy-cluster 👋👋👋
+</span></span></code></pre></div></div></article>
+<footer class="py:24">
+    <div class="f:fade-30 f:14 mb:8"></div>
+    <div class="f:fade-60 f:12">Theme <a class="f:bold" href="https://github.com/serkodev/holy" _target="_blank">Holy</a></div>
+</footer></div>
+    </div>
+</body>
+
+</html>

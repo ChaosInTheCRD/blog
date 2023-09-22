@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on Blog</title>
+    <link>https://blog.chaosinthe.dev/categories/tutorials/</link>
+    <description>Recent content in Tutorials on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 30 May 2020 22:13:36 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/categories/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build your own Kubernetes-based Boutique</title>
+      <link>https://blog.chaosinthe.dev/posts/06-boutique/</link>
+      <pubDate>Sat, 30 May 2020 22:13:36 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/06-boutique/</guid>
+      <description>&lt;p&gt;So you want to commandeer your very own kubernetes vessel&amp;hellip; but don&amp;rsquo;t know where to start? Look no further.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blog</title>
+    <link>https://blog.chaosinthe.dev/posts/</link>
+    <description>Recent content in Posts on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 30 May 2020 22:13:36 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build your own Kubernetes-based Boutique</title>
+      <link>https://blog.chaosinthe.dev/posts/06-boutique/</link>
+      <pubDate>Sat, 30 May 2020 22:13:36 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/06-boutique/</guid>
+      <description>&lt;p&gt;So you want to commandeer your very own kubernetes vessel&amp;hellip; but don&amp;rsquo;t know where to start? Look no further.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>When disaster strikes, count on... Velero?</title>
+      <link>https://blog.chaosinthe.dev/posts/05-velero/</link>
+      <pubDate>Thu, 16 Apr 2020 16:16:01 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/05-velero/</guid>
+      <description>&lt;p&gt;The open source tool that makes backing up your Kubernetes Cluster plain sailing!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Prometheus and Grafana: The Metric Monitoring Titans</title>
+      <link>https://blog.chaosinthe.dev/posts/04-prometheus/</link>
+      <pubDate>Wed, 04 Mar 2020 11:00:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/04-prometheus/</guid>
+      <description>&lt;p&gt;Your cloud native empire will never have looked so beautiful&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Antrea: Giving My Pods A Voice</title>
+      <link>https://blog.chaosinthe.dev/posts/03-antrea/</link>
+      <pubDate>Tue, 25 Feb 2020 19:16:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/03-antrea/</guid>
+      <description>&lt;p&gt;For the love of god&amp;hellip; someone please tell me, what is a CNI?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>WTH Post 0: Peeking Behind the Curtains 🕵🏻‍♂️</title>
+      <link>https://blog.chaosinthe.dev/posts/post-0/</link>
+      <pubDate>Mon, 10 Feb 2020 10:43:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/post-0/</guid>
+      <description>&lt;p&gt;The blog posts are only just the beginning&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Lets direct Kubernetes traffic with... Contour? 🚦</title>
+      <link>https://blog.chaosinthe.dev/posts/first-posts/</link>
+      <pubDate>Mon, 03 Feb 2020 10:43:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/first-posts/</guid>
+      <description>&lt;p&gt;A ground-up exploration of containers, Kubernetes and web traffic routing awaits!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

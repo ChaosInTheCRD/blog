@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Antrea: Giving My Pods A Voice - Blog</title>
+
+    
+    
+    <meta name="description" content="For the love of god&hellip; someone please tell me, what is a CNI?" />
+    <meta name="author" content="" />
+    
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet">
+    <script src="https://unpkg.com/@master/style@1.5.0"></script>
+    <script src="https://unpkg.com/@master/styles@1.13.0"></script>
+    <script src="https://unpkg.com/master-styles-group"></script>
+    <script src="https://unpkg.com/themes.js"></script>
+    <script>window.themes = window.themes || new window.Themes()</script>
+
+    <style>
+        :root {
+            --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+    </style></head>
+<body class="bg:fade-84@dark font:fade-16@dark font:sans">
+    <nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000">
+    <div class="
+        h:full
+        w:full
+        max-w:1200
+        mx:auto
+        px:32
+        d:flex
+        align-items:center
+    ">
+        <div>
+            <a href="/" class="mr-3 font:extralight">
+              
+              Blog
+              
+            </a>
+        </div>
+
+        <div class="ml:auto">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+<div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
+        <div class="max-w:700 w:full box:content-box">
+<article class="box:border-box pt:32">
+    <header class="mb:32">
+        <div class="font:40 font:extrabold">Antrea: Giving My Pods A Voice</div>
+        <div class="mt:16 f:fade-60">
+            <time>Feb 25, 2020</time>
+            </div>
+    </header><div class="
+    _:where(a):hover{text-decoration-color:fade}
+    _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+    _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+    _:where(code){font:90%;_v:middle}
+    _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+    _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+    _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+    _:where(h1){font:40;_font:extrabold}
+    _:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+    _:where(h1,h2,h3,h4,h5,h6){mt:2em}
+    _:where(h2){mb:1em;_font:32}
+    _:where(h3){font:24}
+    _:where(h4){font:20}
+    _:where(h5){font:16}
+    _:where(h6){font:14}
+    _:where(li)::marker{font:fade-44;_font:fade-68@dark}
+    _:where(li){pl:.375em}
+    _:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+    _:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+    _:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+    >:first-child{mt:0!}
+    _:where(pre){p:20;_r:8;_overflow:auto}
+    _:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+    _:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+    _:where(table){width:full;_border-spacing:0}
+    _:where(td){v:baseline}
+    _:where(td,th):first-child{pl:0}
+    _:where(td,th):last-child{pr:0}
+    _:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+    _:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+    _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+    _:where(ul){list-style-type:disc}
+    _:where(ul,ol,blockquote){pl:1.5em}
+    _:where(video,img){max-width:full}
+    _:where(a,mark){text-underline-offset:3}
+    _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
+"><p>For the love of god&hellip; someone please tell me, what is a CNI?</p>
+<h5 id="todays-post-anthem">Todays Post Anthem</h5>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --> The pods are <em>tired of being alone&hellip;</em> Get it? Okay, okay, bad joke. <!-- raw HTML omitted --></p>
+<p>Hello World! Welcome back 🎉 What a week (or two) it has been, full of yet more WTH moments. While there are many different cloud-native platforms, tools and services that I could centre this latest instalment around this week; I thought I’d take the opportunity to discuss an interesting project that I came across in my day to day life.</p>
+<p>Whilst deploying my first <a href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/">kubeadm</a> master node, I was faced with the decision of which pod network add-on to use 👀. Of course, WTH I thought. Yet another moment that I had my false sense of understanding extinguished 🧯. After doing a little bit of searching on the internet, I just found a bunch of people yelling &lsquo;use calico, it just works&rsquo;, so I decided heck why not, let&rsquo;s just do it.. I applied the yaml file I was prompted with, and away I went.</p>
+<!-- raw HTML omitted -->
+<p>Fast forward a couple of days, and I heard the word &lsquo;Antrea&rsquo;. If you&rsquo;ve not figured it out by now, names like Tanzu, Octant, Istio, Helm, Prometheus and Antrea, have a certain ring to them that makes the mind go &lsquo;definitely some open-source project related to Kubernetes&rsquo;. So of course I start asking more questions, and it turns out that Antrea is a pod networking add-on for Kubernetes; just in the way that Calico is 🤔. It was at this point that I thought, &ldquo;ok sure&hellip; it seems that I must take the time to understand what this whole pod network add-on business means in the world of cloud-native, and work out what is going on&rdquo;. So good news, I&rsquo;m going to drag you all along with me, let&rsquo;s go!</p>
+<h3 id="brief-side-note">Brief Side-Note</h3>
+<p>The aim of this blog as a whole is to make it inclusive for all, so in my <a href="https://whattheheptio.com/2020/02/first-posts/">first post</a>, I added some links/content that step through the basics of containers and kubernetes. So don&rsquo;t fear, exciting content that will explain all is only a few clicks away!</p>
+<h2 id="what-the-heptio-is-pod-networking-">What the Heptio is Pod Networking? 🔗</h2>
+<p>So we&rsquo;re back to Kubernetes again (surprise, surprise). And this time we&rsquo;re taking a look at pod networking. So far in my Kubernetes voyage (sailing pun intended), I have tried to wrap my head around what every kubernetes object is, and how it stitches together. To be frank with you all, asking questions such as &lsquo;how do pods get assigned IPs&rsquo; was not at the top of my list of curiosities 😂. As far as I was concerned initially, I started minikube or GKE, and all the networking just folded silently into the background.</p>
+<p>At a basic level, container networking is a mechanism through which containers can <em>optionally</em> connect to other containers, hosts and external networks, like our good friend the internet. Simple capabilities are provided by our base layer container runtimes such as docker 🐳, but more advanced capabilities require additional drivers and plugins. Of course, on a platform such as kubernetes, designed to allow people to command, control, connect, and mould their micro-services in any which way they like, a smart networking solution is of high importance.</p>
+<p>So in a world where processes are spinning up, spinning down, shifting and changing all the time, in multiple places; a framework is required to manage and configure their networking. In a model like this it&rsquo;s required, as quite frankly&hellip; I don&rsquo;t back myself to keep up with the management of this stuff&hellip; do you? Therefore the container runtime utilises something called a Container Networking Interface (CNI), to handle all of this chaos!</p>
+<!-- raw HTML omitted -->
+<p>These plugins provision and manage the IPs of the containers within the runtime, and get informed when said container dies, so resources can be cleaned up. Of course the IPs provisioned for the containers are of a different format to what is seen for the hosts sitting on your home-lab network for instance. While your physical host that is running Kubernetes may have an IP subnet of &lsquo;192.168.0.0/16&rsquo;, your pod network will likely use a subnet of the form &lsquo;10.244.0.0/16&rsquo; (this is what mine uses 😄). so this begs the question&hellip; &ldquo;sure, two pods in a node can easily have a chat with one another&hellip; but what if that pod wants to talk to the node on their network&hellip; or even worse, what if they want to talk to a pod on another node 🤯?&rdquo; Well, the plugin helps us out here by establishing a &lsquo;veth&rsquo; virtual interface pair. one situated in the local pod network namespace,and another on a &lsquo;bridge&rsquo;, sitting in the hosts namespace. The bridge is a virtual switch that is capable of forwarding traffic between network segments, as we discussed above. I like to visualise these links sat on a bridge as akin to those gateways in stranger things between the real world and the upside down&hellip; except in this case we&rsquo;re travelling between network namespaces. If you haven&rsquo;t watched it then my compelling argument for you to is right there ✊.</p>
+<figure><img src="/img/Antrea-03/upsidedown.gif"/>
+</figure>
+
+<p>After copious amounts of effort, I have taken the time to create a diagram that I feel describes this mystical situation below without (too much) complexity. Let&rsquo;s envision a scenario where we have configured two nodes to run our containerised workloads on; workload 1 and workload 2. As you can see in the diagram, each node is connected to a router on the private network with a subnet of 192.168.0.0/24, and have been leased an IP with DHCP. Say for example that in this instance, we have kubernetes installed to orchestrate the containers, have deployed each workload so they run on a separate node (node 1 and 2). Now upon using kubectl to feel like a wizard and magically get container networking configured on our cluster of nodes. In reality, a few things are actions are being executed (unfortunately you&rsquo;re not a real wizard yet). The containers on each node are assigned a unique IP within the subnet range of the container network namespace (this can be declared by the user upon install). After some investigation of my own cluster, the 3rd octet of each pods IP corresponds to the node they&rsquo;re running on (e.g. 10.244.<strong>1</strong>.18 for node 1), pretty neat. Now what also happens, is a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">Daemonset</a> is created by the CNI installer. This is an object declaration that ensures all nodes run a copy of a certain pod. In the diagram, this is where our &lsquo;CNI-Pod&rsquo; comes from 😎. This is the component that handles the declaration of the bridge interface (dark blue looking object in diagram), so that the containers can leak out their packets to the big bad world 🥴!</p>
+<p>A lot to take in? I know. Don&rsquo;t worry though, I also didn&rsquo;t quite get it the first time either (hence missing last weeks post 🥊). I will also embed a video at the bottom of the page that I found helpful.</p>
+<figure><img src="/img/Antrea-03/CNIDiagram.png"/>
+</figure>
+
+<h2 id="ok-ok-thats-enough-tell-me-about-antrea">Ok ok, that&rsquo;s enough. Tell me about Antrea</h2>
+<p><em>Before we dive in, I just thought i&rsquo;d mention that the public Github repository for Antrea is available <a href="https://github.com/vmware-tanzu/antrea">here</a>. The project is still very young, and they&rsquo;re looking for members of the open-source community to join in and contribute. Are you what they&rsquo;re looking for? Go check it out. If not, you should definitely still check out the README</em> 🙂.</p>
+<figure><img src="/img/Antrea-03/Antrea.png"/>
+</figure>
+
+<p>So, where was I&hellip; aha &lsquo;Project Antrea&rsquo;. released as a part of the portfolio of open-source projects spearheaded by VMware under the guise &lsquo;Tanzu&rsquo;, this networking solution is developed primarily for the kubernetes platform, and works very much in the same way as described in the muddled up collection of words in the previous section. So how is it different to previous CNIs? Well, Antrea harnesses a multilayer (OSI layer 2-7) virtual switch software called Open vSwitch to handle the data plane, operating at layer 3/4. In other words the virtual interfaces (veth and bridge) mentioned above are in this case handled using OVS. The benefits brought about by using such a technology within the CNI are:</p>
+<ul>
+<li>High Performance. Technologies that aim to optimise data flow at every level, from data-link layer up to application layer have been used to optimise this technology to transmit packets as quickly and efficiently as possible.</li>
+<li>Portability. One fantastic thing about OVS is it&rsquo;s support for any platform; including windows, Linux and any cloud distribution. This is great for enterprise users with a plethora of different environments that are communicating with one another.</li>
+<li>Operations. Through the design of OVS, Antrea is able to provide metrics for many existing monitoring tools and protocols (such as Prometheus?&hellip; OK not yet&hellip; more content on this coming soon 😲).</li>
+<li>Flexibility and Extensibility. OVS allows the user to create an overlay network for there cluster based on a number of protocols, such as VXLAN, Geneve, GRE and STT. This gives the user a lot of power if they have particular compatibility needs for the infrastructure that sits beneath (<em>casual wink to VMware NSX</em> 😉).</li>
+</ul>
+<p>One final feature that I think is worth noting is a plugin for <a href="https://github.com/vmware-tanzu/octant">Octant</a>, which is a platform for developers to easily view and better understand a kubernetes cluster through a beautiful UI 🤗. Of course, this is also provided by VMware, and it is very easy to deploy, and I recommend that you play with it if you have a cluster for it to utilise.</p>
+<figure><img src="/img/Antrea-03/octant-demo.gif"/>
+</figure>
+
+<h2 id="wrapping-up-">Wrapping Up 🎁</h2>
+<p>Ok, so we have battled through the (somewhat) magical way that kubernetes pods get allocated a subnet, and moreover their own individual IP address so that they really can function automatically all over the world. But we&rsquo;ve also taken a look at project Antrea, and demystified that &lsquo;WTH&rsquo; moment that I encountered just a couple of weeks ago.</p>
+<p>My learning on the subject of container networking is still developing, so I hope that this post made enough sense to be useful, and as always brought some benefit to your life. If so, any comments or feedback would be heavily appreciated, and if you spot any errors or things to correct, the same goes.</p>
+<p>I will sign out by embedding a YouTube video (as promised) of a KubeCon conference presented by Kristen Jacobs from Oracle titled &lsquo;Container Networking from Scratch&rsquo;. This helped me greatly in getting my head around the basic concepts, so thought it would be worth referencing.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/6v_BDHIgOY8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div></div></article>
+<footer class="py:24">
+    <div class="f:fade-30 f:14 mb:8"></div>
+    <div class="f:fade-60 f:12">Theme <a class="f:bold" href="https://github.com/serkodev/holy" _target="_blank">Holy</a></div>
+</footer></div>
+    </div>
+</body>
+
+</html>

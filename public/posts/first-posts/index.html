@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Lets direct Kubernetes traffic with... Contour? 🚦 - Blog</title>
+
+    
+    
+    <meta name="description" content="A ground-up exploration of containers, Kubernetes and web traffic routing awaits!" />
+    <meta name="author" content="" />
+    
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet">
+    <script src="https://unpkg.com/@master/style@1.5.0"></script>
+    <script src="https://unpkg.com/@master/styles@1.13.0"></script>
+    <script src="https://unpkg.com/master-styles-group"></script>
+    <script src="https://unpkg.com/themes.js"></script>
+    <script>window.themes = window.themes || new window.Themes()</script>
+
+    <style>
+        :root {
+            --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+    </style></head>
+<body class="bg:fade-84@dark font:fade-16@dark font:sans">
+    <nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000">
+    <div class="
+        h:full
+        w:full
+        max-w:1200
+        mx:auto
+        px:32
+        d:flex
+        align-items:center
+    ">
+        <div>
+            <a href="/" class="mr-3 font:extralight">
+              
+              Blog
+              
+            </a>
+        </div>
+
+        <div class="ml:auto">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+<div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
+        <div class="max-w:700 w:full box:content-box">
+<article class="box:border-box pt:32">
+    <header class="mb:32">
+        <div class="font:40 font:extrabold">Lets direct Kubernetes traffic with... Contour? 🚦</div>
+        <div class="mt:16 f:fade-60">
+            <time>Feb 3, 2020</time>
+            </div>
+    </header><div class="
+    _:where(a):hover{text-decoration-color:fade}
+    _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+    _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+    _:where(code){font:90%;_v:middle}
+    _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+    _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+    _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+    _:where(h1){font:40;_font:extrabold}
+    _:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+    _:where(h1,h2,h3,h4,h5,h6){mt:2em}
+    _:where(h2){mb:1em;_font:32}
+    _:where(h3){font:24}
+    _:where(h4){font:20}
+    _:where(h5){font:16}
+    _:where(h6){font:14}
+    _:where(li)::marker{font:fade-44;_font:fade-68@dark}
+    _:where(li){pl:.375em}
+    _:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+    _:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+    _:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+    >:first-child{mt:0!}
+    _:where(pre){p:20;_r:8;_overflow:auto}
+    _:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+    _:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+    _:where(table){width:full;_border-spacing:0}
+    _:where(td){v:baseline}
+    _:where(td,th):first-child{pl:0}
+    _:where(td,th):last-child{pr:0}
+    _:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+    _:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+    _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+    _:where(ul){list-style-type:disc}
+    _:where(ul,ol,blockquote){pl:1.5em}
+    _:where(video,img){max-width:full}
+    _:where(a,mark){text-underline-offset:3}
+    _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
+"><p>A ground-up exploration of containers, Kubernetes and web traffic routing awaits!</p>
+<h5 id="todays-post-anthem">Todays Post Anthem</h5>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --> Signed, Sealed, &amp; Delivered&hellip; Let Contour and Cert-Manager do this for you 😎 <!-- raw HTML omitted --></p>
+<p>So you understand the premise of a container, pretty cool right? You have one way or another been taken through a rundown of how Kubernetes can help harness these nifty little containers, and enable enterprises to run their services with a whole new level of control and efficiency. Now you feel accomplished in your understanding of this new trend, and someone has burst your bubble by uttering a sentence like, &ldquo;I use Contour as my ingress controller; it deploys Envoy as the reverse proxy and load balancer, what do you use?&rdquo;. You sit in your seat paralysed for a brief moment as your short-lived confidence evaporates&hellip; and then you bellow&hellip; &lsquo;What the Heptio?!&rsquo;.</p>
+<p>Well good news, this <em>premier</em> blog post is aimed to try and restore your faith in the world of modern applications, and provide an overview of the principles that surround the Contour platform. 👏</p>
+<h4 id="brief-side-note"><em>Brief Side-note</em></h4>
+<p>If you don&rsquo;t understand what I mean from the above statement, I guess this is the moment that you navigate to your search bar and get yourself anywhere other than here. Please don&rsquo;t! You are only a couple of lines away from some interesting articles that will free you of those &lsquo;What the Heptio&rsquo; signals your brain is resonating through your soul. Take a look at the provided links to get your head around the container, and how it brought about container orchestrators such as Kubernetes&hellip; it&rsquo;s cool, I promise:</p>
+<p><a href="https://blog.usejournal.com/what-is-docker-in-simple-english-a24e8136b90b">What is Docker? &ldquo;In Simple English&rdquo;</a></p>
+<p><a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">What is Kubernetes</a></p>
+<p><em>(I also thought the below video would be cool to add, as I think it&rsquo;s actually a pretty neat explanation 😂)</em>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/4ht22ReBjno" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+ </p>
+<h2 id="first-of-all-what-the-heptio"><strong>First of all&hellip; What the Heptio?</strong></h2>
+<p>So you have your Kubernetes cluster. Put simply, a collection of compute nodes (machines) that are held to the mercy of a cluster master, that will carry out the instructions it is given. Using the nodes as its workers, it decides which containerised workloads are going to run on each of the nodes it has in it&rsquo;s control. Bliss. All you needed to do was define to the master what it was you wanted, and it takes care of it for you. You run a <code>kubectl get pods</code> and sit back in your chair with a smug look on your face, as you gaze at your newly created pods, housing a shiny new web application you&rsquo;re going to deploy. And then you think &ldquo;but how does Kubernetes know how to direct traffic intended for the web application to these pods?&rdquo;. Well&hellip; it doesn&rsquo;t, at least not yet. This is where Ingress comes in.</p>
+<p>In the Kubernetes world, Ingress is an application layer level (OSI Layer 7), policy defined method of directing external users to services running on a Kubernetes cluster. As forementioned, if you have a bunch of web services running inside pods, you need to make them available from a public IP address or domain (e.g. whattheheptio.com). Kubernetes Ingress features two main components; an ingress controller and ingress resources.</p>
+<p>As seen in the diagram below, an ingress controller is a service based on a reverse proxy / load balancer (<a href="https://www.nginx.com/resources/glossary/reverse-proxy-vs-load-balancer/">handy definition if needed</a>) which once configured routes incoming traffic to the correct application within your cluster. This ingress controller can be chosen by the cluster admin, and there are a few to choose from (e.g. Nginx, Traefik, Contour 😲). The configuration of said controllers is handled by the cluster master, directed by the cluster resources; a collection of rules and configurations provided by yours truly (e.g. YAML file).</p>
+<figure><img src="/img/post-1/ingress1.png"/>
+</figure>
+
+<p>Ok awesome, you&rsquo;re now entitled to lean back in your chair again, with the satisfaction that your web application is now accessible to whomever you wish it to be, through a domain name that leads back to your k8s cluster, and any requests get handled by the ingress controller, defined by your delicately defined ingress resources YAML.</p>
+<h2 id="-spicing-things-up-with-contour-">⌇🔵 Spicing Things up with Contour 🔵⌇</h2>
+<p>Ok, so from the casual name drop in the previous section, we can deduce that Contour is an Ingress controller for Kubernetes. But what would makes it a good choice for Kubernetes users or enterprise environments? The Contour controller supports dynamic configuration updates. Many freely available ingress controllers designed for use in Kubernetes can be configured to work well. However, performance is hindered by the fact that any changes to the configuration files (Ingress Resources) require a restart to the service before said changes come into effect. In enterprise environments, this can very easily be seen as suboptimal for reliability and performance, not to mention just a bit of a pain. With Contour, you can kiss goodbye to these problems, with dynamic changes enabled through the use of a cool little proxy called Envoy, no restart required 🥳.</p>
+<p>What else? Contour also features multi-team ingress delegation to protect service access on multi-team clusters 😄&hellip; ok ok, I can feel the bubble bursting a little also. To summarise in short, Kubernetes uses a control mechanism called Role Based Access Control (RBAC), that allows the cluster admins to restrict access of development teams interacting with their infrastructure to exclusively the namespaces relevant to their work. This stops the age old problem of a rogue engineering employee deciding to get their own back on a fellow employee that argued with them in the cafeteria, changing all their production front ends to cat memes.</p>
+<p>RBAC is a superb way to manage access to clusters, however issues can arise with regard to multi-team clusters configuring ingress. Ingress is a &rsquo;namespaced&rsquo; resource, and so control of it can be managed in the same segmented nature, but collisions can occur from the way it is configured by different teams. <a href="https://blog.heptio.com/improving-the-multi-team-kubernetes-ingress-experience-with-heptio-contour-0-6-55ae0c0cadef">Alexander Brand&rsquo;s</a> blog post on this subject eloquently describes the scenario where two teams point the same domain extension (e.g. <a href="https://www.example.org/blog">www.example.org/blog</a>) to different service endpoints. In this instance, nothing has been defined to tell the controller what to do in the event of such a conflict, and &rsquo;team two&rsquo; who created the conflict, are unaware of the problem they are creating&hellip; <em>scary</em> 👻. Contour brings a solution to this nightmare with the IngressRoute custom resource definition (CRD). A CRD is a clever feature, as it allows users to add their own custom built objects to tailor the capabilities of Kubernetes to their liking (<a href="https://medium.com/velotio-perspectives/extending-kubernetes-apis-with-custom-resource-definitions-crds-139c99ed3477">more info here</a>). Put simply, the IngressRoute feature brought to Kubernetes by Contour gives cluster admins full control of which teams are permitted to use which domain extensions in their resource definitions. So in the case of our engineering team who tried to steal the &lsquo;/blog&rsquo; domain extension; they have their configuration ignored by contour and are informed of the mistake they have made. Once again if you fancy a more detailed explanation that is still succinct, please go to Alex&rsquo;s article (linked above).</p>
+<h2 id="okay-so-whats-envoy">Okay&hellip; so what&rsquo;s Envoy?</h2>
+<p><figure><img src="/img/post-1/envoy.png"/>
+</figure>
+
+I&rsquo;m sure by now you have done a quick google search to find out what <a href="https://www.envoyproxy.io/">Envoy</a> is. You&rsquo;ve found the cool looking pink logo, its beginnings as a project inside Lyft, and the ties that it has with Googles Istio project. But you may still be scratching your head and thinking like I did, &ldquo;what makes it so special?&rdquo;.</p>
+<p>Well yes, it&rsquo;s a proxy.. just the kind that you&rsquo;d find inside one of your ingress controllers. But there are some key factors that made it a great choice when the Contour project was being created. First of all, Envoy is officially supported by the Cloud Native Computing Foundation (<a href="https://www.cncf.io/cncf-envoy-project-journey/#">CNCF</a>). This ensures there will be long term support and exposure for the project, making it advantageous for deployment in enterprise environments. However, in terms of its architecture, what makes it so appealing is that this proxy is &lsquo;API driven&rsquo;. What does this mean? Well in the instance of the proxies mentioned earlier such as Nginx, a config file must be edited, saved and a service reloaded, before changes are to come into effect. However through Envoys APIs (<a href="https://www.youtube.com/watch?v=s7wmiS2mSXY">What is an API?</a>), any changes that are needed to be made to its configuration, can be done without restart or disturbance. Yes, you guessed it, this is how the Contour project manages to give dynamic configuration updates with such ease. Finally, it is written in C++, which gives it the ability to execute very quickly, and run very efficiently. Why? Well maybe it is a bit out of scope for this post, maybe another time 😊.</p>
+<p>If you want a more detailed/full description of the envoy proxy, and why it was a great design choice for the Contour project; please see the TGIK episode by Joe Beda that I have embedded below, and go to <code>playtime 13:00</code> (watch the whole episode if you have the interest and the time to kill).</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/-Hvfl6zOLGE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="tell-me-more-">Tell me more 🙏</h2>
+<p>Okay! So first of all congratulations for getting this far, and have somehow managed to not cringe too hard at my cheesy journalism. I hope by now that you feel versed enough in the world of project contour to follow any deeper documentation. If so, crack on! Personally, I think the TGIK episode below is a great place to start, and from there you can look over the documentation to your hearts content. I have provided the relevant pages for both Contour and Envoy below.</p>
+<p><a href="https://projectcontour.io/">Contour Project</a></p>
+<p><a href="https://github.com/projectcontour/contour">Contour Project Github</a></p>
+<p><a href="https://www.envoyproxy.io/">Envoy Project</a></p>
+<p><a href="https://github.com/envoyproxy/envoy">Envoy Project Github</a></p>
+<p>I hope that this article has been worth the 10-15 minutes, and you feel that those &lsquo;what the Heptio?&rsquo; feelings have faded away into nothingness. At the very least, I hope that you have learned something interesting about the world of cloud native, and if there is anything I can do to help, or any feedback you would like to give; please reach out to me 🙋🏻‍♂️.</p>
+<p>On the subject of feedback, any feedback is greatly received. I am still learning, so if anyone finds a small hole/caveat in my overview, that&rsquo;s ok! I would really like to know, so I can review and make the necessary changes. I have even got a comments section below (so exciting), so feel free to discuss what you like down there.</p></div></article>
+<footer class="py:24">
+    <div class="f:fade-30 f:14 mb:8"></div>
+    <div class="f:fade-60 f:12">Theme <a class="f:bold" href="https://github.com/serkodev/holy" _target="_blank">Holy</a></div>
+</footer></div>
+    </div>
+</body>
+
+</html>

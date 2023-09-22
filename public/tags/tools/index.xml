@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Blog</title>
+    <link>https://blog.chaosinthe.dev/tags/tools/</link>
+    <description>Recent content in Tools on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Apr 2020 16:16:01 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When disaster strikes, count on... Velero?</title>
+      <link>https://blog.chaosinthe.dev/posts/05-velero/</link>
+      <pubDate>Thu, 16 Apr 2020 16:16:01 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/05-velero/</guid>
+      <description>&lt;p&gt;The open source tool that makes backing up your Kubernetes Cluster plain sailing!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Prometheus and Grafana: The Metric Monitoring Titans</title>
+      <link>https://blog.chaosinthe.dev/posts/04-prometheus/</link>
+      <pubDate>Wed, 04 Mar 2020 11:00:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/04-prometheus/</guid>
+      <description>&lt;p&gt;Your cloud native empire will never have looked so beautiful&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

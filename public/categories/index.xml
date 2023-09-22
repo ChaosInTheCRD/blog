@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Blog</title>
+    <link>https://blog.chaosinthe.dev/categories/</link>
+    <description>Recent content in Categories on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 30 May 2020 22:13:36 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tutorials</title>
+      <link>https://blog.chaosinthe.dev/categories/tutorials/</link>
+      <pubDate>Sat, 30 May 2020 22:13:36 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/categories/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools and Platforms</title>
+      <link>https://blog.chaosinthe.dev/categories/tools-and-platforms/</link>
+      <pubDate>Thu, 16 Apr 2020 16:16:01 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/categories/tools-and-platforms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Backend Walkthroughs</title>
+      <link>https://blog.chaosinthe.dev/categories/backend-walkthroughs/</link>
+      <pubDate>Mon, 10 Feb 2020 10:43:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/categories/backend-walkthroughs/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

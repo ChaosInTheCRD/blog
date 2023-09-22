@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitoring on Blog</title>
+    <link>https://blog.chaosinthe.dev/tags/monitoring/</link>
+    <description>Recent content in Monitoring on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 Mar 2020 11:00:56 +0000</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prometheus and Grafana: The Metric Monitoring Titans</title>
+      <link>https://blog.chaosinthe.dev/posts/04-prometheus/</link>
+      <pubDate>Wed, 04 Mar 2020 11:00:56 +0000</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/04-prometheus/</guid>
+      <description>&lt;p&gt;Your cloud native empire will never have looked so beautiful&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
