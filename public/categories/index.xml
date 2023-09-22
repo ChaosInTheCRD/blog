@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 May 2020 22:13:36 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Sep 2023 18:13:36 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General</title>
+      <link>https://blog.chaosinthe.dev/categories/general/</link>
+      <pubDate>Fri, 22 Sep 2023 18:13:36 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/categories/general/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Tutorials</title>
       <link>https://blog.chaosinthe.dev/categories/tutorials/</link>

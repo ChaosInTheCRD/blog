@@ -96,17 +96,26 @@
     _:where(a,mark){text-underline-offset:3}
     _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
 "><p>Your cloud native empire will never have looked so beautiful&hellip;</p>
-<h5 id="todays-post-anthem">Todays Post Anthem</h5>
-<!-- raw HTML omitted -->
-<p><em>By &lsquo;writing&rsquo;&hellip; of course I mean metrics&hellip;</em></p>
 <p>In my last article, I mentioned an open-source platform called Prometheus. Now if you are in any way involved with the cloud native ecosystem, you will probably have come across it. After all, it shares its name with a Greek Titan that starred in one of the world famous &lsquo;Alien&rsquo; movies 👽. But then I tell you that it is a monitoring and alerting toolkit that includes data scraping and storing, it&rsquo;s own querying language called &lsquo;PromQL&rsquo; and a built in alert manager. Yes, that sounds great&hellip; but&hellip; what does that mean? Well here we go again!</p>
-<!-- raw HTML omitted -->
-<h2 id="prometheus-what-the-heptio-">Prometheus&hellip; What the Heptio? 🤷‍♂️</h2>
+<p>
+  <figure>
+    <img src="/img/04-Prometheus/prometheusmovie.gif" alt="Prometheus Gif">
+    <figcaption>That look the sysadmin makes when he first sees a graph of his cluster metrics on Prometheus</figcaption>
+  </figure>
+
+</p>
+<h2 id="prometheus-">Prometheus&hellip; 🤷‍♂️</h2>
 <p>Now let&rsquo;s build ourselves a scenario. You&rsquo;re like me, and you&rsquo;ve just set up your first all singing, all dancing kubernetes cluster on GKE 🎵. Whether you know it or not (I definitely didn&rsquo;t to begin with), this is a very simple, turnkey experience. What I mean by this is that from go, a lot of the clusters components are setup for you, and their presence just fades into the background (within the darkest depths of the Google Cloud Platform 👻).</p>
 <p>You think to yourself, &ldquo;I wonder how my cluster is performing&hellip; What pods are using up the most memory, how much traffic am I getting through my contour ingress controller?&rdquo;. Well.. that certainly is an interesting question. You have a scroll through the GCP web UI and the built in functions just throw it into your lap and you don&rsquo;t need to spare a second thought. But&hellip; where are those metrics really coming from? and if you hadn&rsquo;t asked yourself this question&hellip; and then spun up something more vanilla afterwards, like Kubeadm; why aren&rsquo;t these same capabilities just given to to me in the same way? Now we&rsquo;re talking 🕵🏻‍♂️.</p>
-<!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/04-Prometheus/GKEmonitoring.png" alt="Prometheus Gif">
+    <figcaption>How the GKE Web UI Looks</figcaption>
+  </figure>
+
+</p>
 <p><a href="https://github.com/prometheus/prometheus">Prometheus</a> is a set of tools that you&rsquo;ll want to get for a thorough logging and monitoring experience on many container orchestrators. And what makes it so widely acclaimed? Well, a couple of things. First of all it has a powerfully simple querying language, so it&rsquo;s users can analyse their Kubernetes, Docker Swarm, Apache Mesos, Cloud Foundry&hellip; or just Kubernetes 🙃 clusters down to the minute details with ease.</p>
-<p>Whats more? Prometheus was the second project to be officially supported by the Cloud Native Computing Foundation, along with Kubernetes and Envoy (mentioned in the first article for this <a href="https://www.whattheheptio.com/2020/02/first-posts/">blog</a>, take a look). This support gives a company that plans to integrate its applications with Prometheus tooling, the assurance that it will be an industry standard going into the future.  For this reason, this makes it a perfect candidate for a metrics provider, and it has seen wide spread adoption; with people speculating that the number of organisations using it could be in the tens of thousands.</p>
+<p>Whats more? Prometheus was the second project to be officially supported by the Cloud Native Computing Foundation, along with Kubernetes and Envoy (mentioned in the first article for this <a href="https://blog.chaosinthe.dev/posts/first-posts/">blog</a>, take a look). This support gives a company that plans to integrate its applications with Prometheus tooling, the assurance that it will be an industry standard going into the future.  For this reason, this makes it a perfect candidate for a metrics provider, and it has seen wide spread adoption; with people speculating that the number of organisations using it could be in the tens of thousands.</p>
 <h2 id="so-how-is-all-of-this-possible">So how is all of this possible?</h2>
 <p>So as I said in the previous section, Prometheus is far more than a Kubernetes concept. It doesn&rsquo;t stipulate on the application running, and it has the capability of using metrics on almost any application provided it is configured correctly. In general, it requires that the workload provides the metrics for it using two components:</p>
 <ul>
@@ -114,7 +123,13 @@
 <li>Prometheus HTTP Endpoint: The exporter then sends these metrics to a HTTP endpoint, which is a port on the applications http address that sits open, providing the metrics that Prometheus requires for the amazing stuff it&rsquo;ll do later on.</li>
 </ul>
 <p>Ok, so how does Prometheus get hold of these metrics that are now spilling out of the configured port? Well, Prometheus has a server application conveniently named &lsquo;Prometheus Server&rsquo;, that &lsquo;scrapes&rsquo; up the metrics sitting on the aforementioned ports, organises them into a time series database (TSDB), and throws it into a storage volume somewhere, amazing</p>
-<!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/04-Prometheus/PromArch.png" alt="Prometheus Gif">
+    <figcaption>How it all looks under the hood</figcaption>
+  </figure>
+
+</p>
 <h3 id="but-i-thought-you-said-there-was-an-alert-manager">But I thought you said there was an alert manager?</h3>
 <p>Oh yes, you&rsquo;re right there. Prometheus does indeed have its own dedicated alert manager. Embedded within the Prometheus server are capabilities that allow the user to define alerting rules based on the metrics provide by the cluster. For instance, want to know when there is high request latency for a web page on your server? No problem. This can be done easily if you give the server a correctly configured alert rules yaml. For example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">groups</span>:
@@ -134,7 +149,10 @@
 
 <h2 id="promql-where-the-real-fun-begins-">PromQL&hellip; Where the real fun begins 🕺</h2>
 <p>As I mentioned, the Alertmanager does have it&rsquo;s own dedicated web-ui, and so does the Prometheus server. When you access the Prometheus web-ui (through a default port of 9090), you&rsquo;re faced with a pretty simple, yet bland looking interface. It has a simple text input box labelled &lsquo;Expression&rsquo;, with a button below it that says &lsquo;Execute&rsquo;. Very exciting, let&rsquo;s start playing.</p>
-<!-- raw HTML omitted -->
+<figure><img src="/img/04-Prometheus/PromGUI.png"/>
+</figure>
+
+<p>So by &lsquo;Expression&rsquo;, Prometheus means that it intends for the user to input syntax that &lsquo;queries&rsquo; for some metrics sitting on the Prometheus Database (TSDB). This will be your way of telling prometheus, &ldquo;hey, fetch me the CPU utilisation data of all the containers running on my kubernetes cluster, and return it organised in a certain way. Then finally if all goes well, it&rsquo;ll plot that data in the graph box sat below in the GUI. But just like a any extraterrestrial being, you must ask yourself &lsquo;what language does it speak?&rsquo;. Well thankfully, it isn&rsquo;t Clingon. In fact, its querying language, PromSQL, is one of the reasons why this tool has found such popularity. As you can see below, the syntax is actually very simple to understand.. a.k.a it&rsquo;s pretty much in plain english, hoorah! If you haven&rsquo;t deduced already, this example fetches the amount of http GET requests taking place in the staging, testing and development environments&hellip; easy 😂.</p>
 <pre tabindex="0"><code class="language-PromSQL" data-lang="PromSQL">http_requests_total{environment=~&#34;staging|testing|development&#34;,method!=&#34;GET&#34;}
 </code></pre><h2 id="but-i-was-hoping-for-something-prettier-">But I was hoping for something prettier 💋</h2>
 <p>Well to be honest&hellip; so was I. But don&rsquo;t worry, I have good news!</p>
@@ -143,6 +161,13 @@
 </figure>
 
 <!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/04-prometheus/Grafana.png" alt="">
+    <figcaption>I know right?</figcaption>
+  </figure>
+
+</p>
 <p>So welcome to the magical land of <a href="https://github.com/grafana/grafana">Grafana</a>. Where you can make use of PromSQL and the prometheus server APIs to visualise your generated metrics on highly configurable dashboards. That&rsquo;s right, we&rsquo;ve just taken your Starship Enterprise to the next level 🛰. Each dashboard consists of one or more panels that can be arranged into rows. Of course usually each panel on the dashboard is related to each other. So you would have for instance a dashboard of panels for information regarding your kubernetes clusters CPU/Mem/Disk utilisation, and another dashboard that displays the ingresses of your applications sitting within the cluster. Then you could even have another dashboard that showed the geographical location of each request to your site in real time&hellip; yes I absolutely need to look into doing it for this site 🙌. The sky really is the limit&hellip; if it&rsquo;s data that can be hoovered up by prometheus into the database, it can be visualised on Grafana with some configuration. And what&rsquo;s even cooler? You can make specific dashboards public so that you can show them to friends&hellip; or uh&hellip; colleagues easily. Don&rsquo;t worry though, you will still have full access to your precious infrastructure under lock and key.</p>
 <p>I hear you, I hear you, you want to see what this interface looks like in real life. Well good news! Thanks to the open-source attitude some organisations take towards these platforms, certain dashboards are available for anyone to look at. For instance, <a href="https://monit-grafana-open.cern.ch/d/000000523/home?orgId=16">CERN</a>, <a href="https://devstats.cncf.io/">CNCF</a>, the <a href="https://weather.hiveeyes.org/grafana/d/start/welcome?kiosk&amp;orgId=1&amp;refresh=15m">Beehive Project</a> and many more make some of their dashboards fully accessible for the world to see. I&rsquo;ve just wasted the last 30 minutes looking around them and they&rsquo;re amazing, so feel free to give them a look if you have any more free time.</p>
 <h2 id="im-sold-im-sold-how-do-i-get-it-on-my-kubernetes-cluster">I&rsquo;m sold, i&rsquo;m sold! How do I get it on my Kubernetes cluster?</h2>

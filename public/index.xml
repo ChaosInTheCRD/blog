@@ -6,7 +6,17 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 May 2020 22:13:36 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Sep 2023 18:13:36 +0100</lastBuildDate><atom:link href="https://blog.chaosinthe.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>No. Don&#39;t put your back into it.</title>
+      <link>https://blog.chaosinthe.dev/posts/back/</link>
+      <pubDate>Fri, 22 Sep 2023 18:13:36 +0100</pubDate>
+      
+      <guid>https://blog.chaosinthe.dev/posts/back/</guid>
+      <description>Note: I don&amp;rsquo;t know everything about how to prevent back pain from work, I am no expert. This is simply my learnings from my experience. If you disagree with anything written in here, or feel like I am misinformed, please leave a comment on the post.
+My name is Tom. I am 26 years old, I am 6 ft 1 inches tall, and I weigh 86 kilograms (with 0.8 kilograms added on due to too much cheese at christmas).</description>
+    </item>
+    
     <item>
       <title>Build your own Kubernetes-based Boutique</title>
       <link>https://blog.chaosinthe.dev/posts/06-boutique/</link>
@@ -49,7 +59,7 @@
       <pubDate>Mon, 10 Feb 2020 10:43:56 +0000</pubDate>
       
       <guid>https://blog.chaosinthe.dev/posts/post-0/</guid>
-      <description>&lt;p&gt;The blog posts are only just the beginning&amp;hellip;&lt;/p&gt;</description>
+      <description>So unlike the majority of posts that I will hopefully put on here, this one will be a little more &amp;lsquo;build log&amp;rsquo; orientated. That&amp;rsquo;s not to mean that by the end of reading you won&amp;rsquo;t have learned anything new. hopefully you will find it inciteful, and maybe even helpful for your own learning and exploration into the field of cloud native platforms. Believe me; The articles that sit on this blog are only where the work really begins.</description>
     </item>
     
     <item>

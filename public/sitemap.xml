@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.chaosinthe.dev/</loc>
-    <lastmod>2020-05-30T22:13:36+01:00</lastmod>
+    <loc>https://blog.chaosinthe.dev/tags/back-pain/</loc>
+    <lastmod>2023-09-22T18:13:36+01:00</lastmod>
   </url><url>
-    <loc>https://blog.chaosinthe.dev/posts/06-boutique/</loc>
-    <lastmod>2020-05-30T22:13:36+01:00</lastmod>
+    <loc>https://blog.chaosinthe.dev/</loc>
+    <lastmod>2023-09-22T18:13:36+01:00</lastmod>
   </url><url>
     <loc>https://blog.chaosinthe.dev/categories/</loc>
+    <lastmod>2023-09-22T18:13:36+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.chaosinthe.dev/categories/general/</loc>
+    <lastmod>2023-09-22T18:13:36+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.chaosinthe.dev/tags/health/</loc>
+    <lastmod>2023-09-22T18:13:36+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.chaosinthe.dev/posts/back/</loc>
+    <lastmod>2023-09-22T18:13:36+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.chaosinthe.dev/posts/</loc>
+    <lastmod>2023-09-22T18:13:36+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.chaosinthe.dev/tags/</loc>
+    <lastmod>2023-09-22T18:13:36+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.chaosinthe.dev/posts/06-boutique/</loc>
     <lastmod>2020-05-30T22:13:36+01:00</lastmod>
   </url><url>
     <loc>https://blog.chaosinthe.dev/tags/google-cloud/</loc>
@@ -17,13 +35,7 @@
     <loc>https://blog.chaosinthe.dev/tags/kubernetes/</loc>
     <lastmod>2020-05-30T22:13:36+01:00</lastmod>
   </url><url>
-    <loc>https://blog.chaosinthe.dev/posts/</loc>
-    <lastmod>2020-05-30T22:13:36+01:00</lastmod>
-  </url><url>
     <loc>https://blog.chaosinthe.dev/tags/practical/</loc>
-    <lastmod>2020-05-30T22:13:36+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.chaosinthe.dev/tags/</loc>
     <lastmod>2020-05-30T22:13:36+01:00</lastmod>
   </url><url>
     <loc>https://blog.chaosinthe.dev/categories/tutorials/</loc>

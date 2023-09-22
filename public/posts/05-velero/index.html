@@ -96,10 +96,6 @@
     _:where(a,mark){text-underline-offset:3}
     _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
 "><p>The open source tool that makes backing up your Kubernetes Cluster plain sailing!</p>
-<h5 id="todays-post-anthem">Todays Post Anthem</h5>
-<!-- raw HTML omitted -->
-<p><em>Please, don&rsquo;t you rock my boat (or kubernetes cluster)
-🥁</em></p>
 <p>Well surprise surprise, it looks like I&rsquo;m back! Not at all the length of time that I was planning to be away for, but certain events (that I&rsquo;m sure you will not want to spend another minute hearing about) led me to put our curious voyage together through the mystical universe of cloud-native, on the back burner for a little while. Now now, of course that does not mean that I haven&rsquo;t been exploring further; in fact, quite the contrary.</p>
 <h3 id="so-what-have-i-been-up-to">So what have I been up to?</h3>
 <p>That&rsquo;s a great question! The past few weeks has actually given me a considerable amount of time to play around with a selection of different projects; some of them more productive than others; but alas, many of them could very happily overviewed on this blog, without having me veer too far off topic. Hopefully over the next few weeks, I will take strides to write some chapters on WTH explaining them. To tease your taste buds, here is a sneak preview of what I have been up to:</p>
@@ -111,14 +107,20 @@
 </ul>
 <h2 id="enough-chit-chat-tell-me-about-velero">Enough chit chat, tell me about Velero</h2>
 <p>Okay, okay I hear you, listening to my invalid excuses isn&rsquo;t much fun for anyone. But funnily enough, neither is system failure. And what&rsquo;s worse than system failure? I&rsquo;ll tell you for free; system failure with no disaster recovery solution! No disaster recovery solution, mitigation, or protection, for the kubernetes empire that you have worked tirelessly to setup over many months, if not years. But this begs the question; if your workloads are running in ephemeral containers, why not treat your cluster as an ephemeral beast as well?</p>
-<h3 id="ephemeral-what-the-heptio">Ephemeral? What the Heptio?</h3>
-<p>In the world of cloud native, containers by and large are treated to be ephemeral entities. In essence, this means their lifetime is viewed to be very short, before dying a valiant death. For this reason, data that we want to persist after a said death, to be used by the next container that comes along, is given its own dedicated resource to live in. For Kubernetes, this resource is called a persistent volume (PV), and solves many headaches. Try deploying <a href="https://whattheheptio.com/2020/03/04-prometheus/">Grafana</a> dashboards on Kubernetes without any persistent storage; you&rsquo;ll see what I mean!</p>
+<h3 id="ephemeral">Ephemeral?</h3>
+<p>In the world of cloud native, containers by and large are treated to be ephemeral entities. In essence, this means their lifetime is viewed to be very short, before dying a valiant death. For this reason, data that we want to persist after a said death, to be used by the next container that comes along, is given its own dedicated resource to live in. For Kubernetes, this resource is called a persistent volume (PV), and solves many headaches. Try deploying <a href="https://blog.chaosinthe.dev/posts/04-prometheus/">Grafana</a> dashboards on Kubernetes without any persistent storage; you&rsquo;ll see what I mean!</p>
 <h3 id="and-my-kubernetes-manifests-where-are-they-stored-">And my Kubernetes Manifests&hellip; Where are they stored? 💾</h3>
 <p>Aha! now you&rsquo;re asking some important questions. The Kubernetes <a href="https://devspace.cloud/docs/cli/deployment/kubernetes-manifests/what-are-manifests">manifests</a>, are a big stack of yaml files that are presented to the API server. They describe the what, when, how and why of every application running on the cluster, and are stored on a database called <a href="https://etcd.io/">etcd</a>. Without going into this too deeply (I shall save it for another instalment), this a distributed, reliable key-value store; that is accessible cluster-wide. Due to its distributed nature, etcd usually runs in a cluster model of multiple nodes; just like kubernetes. Most commonly, this cluster is set up as a selection of docker containers. Containers everywhere!</p>
 <p>So what happens when you have a single node etcd cluster that has its data corrupted? What happens when the power goes out in your house, and you power your cluster back on to find that your etcd node isn&rsquo;t responding? Well, of course i&rsquo;m talking from experience, so I can tell you. You cry for a while, and then get up and say; looks like we&rsquo;ll have to just build all over again.</p>
-<!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/05-Velero/sandcastle.gif" alt="sand castle">
+    <figcaption>what happened to my old cluster? 😭</figcaption>
+  </figure>
+
+</p>
 <h3 id="planning-for-the-inevitable">Planning for the inevitable</h3>
-<p>Well guess what, in the world of Kubernetes, disaster recovery is not something you should think about on day 2, or day 1&hellip; it should be thought out and implemented on day 0. The beauty of treating your containers as ephemeral, is that they can fail relatively frequently, and kubernetes will spin up new ones to take their place; mounting the persistent data in the appropriate places. But as highlighted by the etcd anecdote&hellip; my cluster would maybe benefit from taking some inspiration from this &rsquo;live fast, die young&rsquo; attitude that the containers it runs have adopted. Its about time we designed our cluster with failure in mind. Wouldn&rsquo;t it be great to have our Kubernetes resources declaratively backed up in an automated fashion. Sounds great! Well&hellip; I hear you thinking &ldquo;What the Heptio? How do I do that?&rdquo;&hellip; Velero, take centre stage.</p>
+<p>Well guess what, in the world of Kubernetes, disaster recovery is not something you should think about on day 2, or day 1&hellip; it should be thought out and implemented on day 0. The beauty of treating your containers as ephemeral, is that they can fail relatively frequently, and kubernetes will spin up new ones to take their place; mounting the persistent data in the appropriate places. But as highlighted by the etcd anecdote&hellip; my cluster would maybe benefit from taking some inspiration from this &rsquo;live fast, die young&rsquo; attitude that the containers it runs have adopted. Its about time we designed our cluster with failure in mind. Wouldn&rsquo;t it be great to have our Kubernetes resources declaratively backed up in an automated fashion. Sounds great! Well&hellip; I hear you thinking &ldquo;How do I do that?&rdquo;&hellip; Velero, take centre stage.</p>
 <h2 id="please-dont-you-rock-my-boat-">Please don&rsquo;t you rock my boat ⛵️</h2>
 <figure><img src="/img/05-Velero/velero.png"/>
 </figure>
@@ -134,7 +136,7 @@
 <p>The basic install shows us that we can simply go ahead and install Velero on any machine that has kubectl access to the cluster you want to backup. I used MacOS, so installed the Velero client tool with the <a href="https://brew.sh/">brew</a> package manager. Otherwise, the <a href="https://github.com/vmware-tanzu/velero/releases/latest">latest release</a> tarball for your platform can be downloaded from Github.</p>
 <p>From there, you need to setup and configure the object store, choosing from the list of providers mentioned above. I used minio, which provides AWS S3 compatible storage.</p>
 <p>You will then need to perform a <code>velero install</code> command from your chosen client, with added parameters that describe your object store location. In my case the <code>install</code> command with flags looked like the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>what@heptio:~$ velero install \    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>chaointhecrd@home:~$ velero install \    
 </span></span><span style="display:flex;"><span>    --provider aws \ # name of provider
 </span></span><span style="display:flex;"><span>    --plugins velero/velero-plugin-for-aws:v1.0.0 \ # the plugin velero needs to use for minio
 </span></span><span style="display:flex;"><span>    --bucket velero \ # the name of the minio bucket
@@ -149,11 +151,11 @@
 <figure><img src="/img/05-Velero/velero-backup.gif"/>
 </figure>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>what@heptio:~$ velero create backup weave --include-namespaces weave 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>chaosinthecrd@home:~$ velero create backup weave --include-namespaces weave 
 </span></span><span style="display:flex;"><span># creates the backup
-</span></span><span style="display:flex;"><span>what@heptio:~$ velero get backups
+</span></span><span style="display:flex;"><span>chaosinthecrd@home:~$ velero get backups
 </span></span><span style="display:flex;"><span># fetches the backups, and shows their status
-</span></span><span style="display:flex;"><span>what@heptio:~$ kubectl delete ns weave
+</span></span><span style="display:flex;"><span>chaosinthecrd@home:~$ kubectl delete ns weave
 </span></span><span style="display:flex;"><span># deletes the namespace... let the chaos begin
 </span></span></code></pre></div><h4 id="2-dont-panic-and-fall-back-on-velero-">2. Don&rsquo;t panic, and fall back on Velero 🙆‍♂️</h4>
 <p>So we&rsquo;ve deleted the namespace, its time to panic. In fact no, it certainly is not time to panic. You were cunning, and planned for disaster on day 0, rather than day 2! Lets make the magic happen.</p>
@@ -162,7 +164,7 @@
 <figure><img src="/img/05-Velero/velero-restore.gif"/>
 </figure>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>what@heptio:~$ velero restore create --from-backup weave
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>chaosinthecrd@home:~$ velero restore create --from-backup weave
 </span></span><span style="display:flex;"><span># All we need to get <span style="color:#e6db74">&#39;backup&#39;</span> and running 😏
 </span></span></code></pre></div><h2 id="wrapping-up">Wrapping up</h2>
 <p>So, thank you for following along my anecdotal overview of Velero, and how I managed to stumble upon a truly magnificent tool, that has already saved my bacon a couple of times. The best part is that I have only scratched the surface of what Velero is capable of, and I will leave it to you with regards to taking your disaster recovery journey further into the abyss ✨.</p>

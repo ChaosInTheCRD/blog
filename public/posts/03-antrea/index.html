@@ -96,20 +96,29 @@
     _:where(a,mark){text-underline-offset:3}
     _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
 "><p>For the love of god&hellip; someone please tell me, what is a CNI?</p>
-<h5 id="todays-post-anthem">Todays Post Anthem</h5>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --> The pods are <em>tired of being alone&hellip;</em> Get it? Okay, okay, bad joke. <!-- raw HTML omitted --></p>
 <p>Hello World! Welcome back 🎉 What a week (or two) it has been, full of yet more WTH moments. While there are many different cloud-native platforms, tools and services that I could centre this latest instalment around this week; I thought I’d take the opportunity to discuss an interesting project that I came across in my day to day life.</p>
 <p>Whilst deploying my first <a href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/">kubeadm</a> master node, I was faced with the decision of which pod network add-on to use 👀. Of course, WTH I thought. Yet another moment that I had my false sense of understanding extinguished 🧯. After doing a little bit of searching on the internet, I just found a bunch of people yelling &lsquo;use calico, it just works&rsquo;, so I decided heck why not, let&rsquo;s just do it.. I applied the yaml file I was prompted with, and away I went.</p>
-<!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/Antrea-03/KubernetesComic2.png" alt="Kubernetes comic">
+    <figcaption>Ok sure, the &#39;containers anywhere&#39; model sounds great.. but how do they network? It can&#39;t be magic... </figcaption>
+  </figure>
+
+</p>
 <p>Fast forward a couple of days, and I heard the word &lsquo;Antrea&rsquo;. If you&rsquo;ve not figured it out by now, names like Tanzu, Octant, Istio, Helm, Prometheus and Antrea, have a certain ring to them that makes the mind go &lsquo;definitely some open-source project related to Kubernetes&rsquo;. So of course I start asking more questions, and it turns out that Antrea is a pod networking add-on for Kubernetes; just in the way that Calico is 🤔. It was at this point that I thought, &ldquo;ok sure&hellip; it seems that I must take the time to understand what this whole pod network add-on business means in the world of cloud-native, and work out what is going on&rdquo;. So good news, I&rsquo;m going to drag you all along with me, let&rsquo;s go!</p>
 <h3 id="brief-side-note">Brief Side-Note</h3>
-<p>The aim of this blog as a whole is to make it inclusive for all, so in my <a href="https://whattheheptio.com/2020/02/first-posts/">first post</a>, I added some links/content that step through the basics of containers and kubernetes. So don&rsquo;t fear, exciting content that will explain all is only a few clicks away!</p>
-<h2 id="what-the-heptio-is-pod-networking-">What the Heptio is Pod Networking? 🔗</h2>
+<p>The aim of this blog as a whole is to make it inclusive for all, so in my <a href="https://blog.chaosinthe.dev/posts/first-posts/">first post</a>, I added some links/content that step through the basics of containers and kubernetes. So don&rsquo;t fear, exciting content that will explain all is only a few clicks away!</p>
+<h2 id="what-is-pod-networking-">What is Pod Networking? 🔗</h2>
 <p>So we&rsquo;re back to Kubernetes again (surprise, surprise). And this time we&rsquo;re taking a look at pod networking. So far in my Kubernetes voyage (sailing pun intended), I have tried to wrap my head around what every kubernetes object is, and how it stitches together. To be frank with you all, asking questions such as &lsquo;how do pods get assigned IPs&rsquo; was not at the top of my list of curiosities 😂. As far as I was concerned initially, I started minikube or GKE, and all the networking just folded silently into the background.</p>
 <p>At a basic level, container networking is a mechanism through which containers can <em>optionally</em> connect to other containers, hosts and external networks, like our good friend the internet. Simple capabilities are provided by our base layer container runtimes such as docker 🐳, but more advanced capabilities require additional drivers and plugins. Of course, on a platform such as kubernetes, designed to allow people to command, control, connect, and mould their micro-services in any which way they like, a smart networking solution is of high importance.</p>
 <p>So in a world where processes are spinning up, spinning down, shifting and changing all the time, in multiple places; a framework is required to manage and configure their networking. In a model like this it&rsquo;s required, as quite frankly&hellip; I don&rsquo;t back myself to keep up with the management of this stuff&hellip; do you? Therefore the container runtime utilises something called a Container Networking Interface (CNI), to handle all of this chaos!</p>
-<!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/Antrea-03/Alternatives.png" alt="Kubernetes comic">
+    <figcaption>Options for a CNI... Besides Antrea 🙃</figcaption>
+  </figure>
+
+</p>
 <p>These plugins provision and manage the IPs of the containers within the runtime, and get informed when said container dies, so resources can be cleaned up. Of course the IPs provisioned for the containers are of a different format to what is seen for the hosts sitting on your home-lab network for instance. While your physical host that is running Kubernetes may have an IP subnet of &lsquo;192.168.0.0/16&rsquo;, your pod network will likely use a subnet of the form &lsquo;10.244.0.0/16&rsquo; (this is what mine uses 😄). so this begs the question&hellip; &ldquo;sure, two pods in a node can easily have a chat with one another&hellip; but what if that pod wants to talk to the node on their network&hellip; or even worse, what if they want to talk to a pod on another node 🤯?&rdquo; Well, the plugin helps us out here by establishing a &lsquo;veth&rsquo; virtual interface pair. one situated in the local pod network namespace,and another on a &lsquo;bridge&rsquo;, sitting in the hosts namespace. The bridge is a virtual switch that is capable of forwarding traffic between network segments, as we discussed above. I like to visualise these links sat on a bridge as akin to those gateways in stranger things between the real world and the upside down&hellip; except in this case we&rsquo;re travelling between network namespaces. If you haven&rsquo;t watched it then my compelling argument for you to is right there ✊.</p>
 <figure><img src="/img/Antrea-03/upsidedown.gif"/>
 </figure>

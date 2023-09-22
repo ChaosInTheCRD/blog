@@ -96,12 +96,17 @@
     _:where(a,mark){text-underline-offset:3}
     _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
 "><p>So you want to commandeer your very own kubernetes vessel&hellip; but don&rsquo;t know where to start? Look no further.</p>
-<h5 id="todays-post-anthem">Todays Post Anthem</h5>
-<!-- raw HTML omitted -->
-<p><em>hey, want to go microservice shopping?</em> 🤦‍♂️</p>
-<p>Okay, so I agree. Kubernetes is an exciting concept for those interested in the enterprise computing world and unless you&rsquo;ve been living under a rock for the past year, you have probably heard the name thrown around left, right and centre. In fact, this blog on its own does a pretty good job that. You then begin to delve into the documentation, which talks about the &lsquo;microservice architecture&rsquo; way of life and you start to think, &ldquo;What the Heptio? How am I meant to just quickly develop my own microservices for the sake of trying out this platform?&rdquo;. Well this is how I felt, but unfortunately I didn&rsquo;t stumble upon a blog post like this that will now show you a fun way that you can try the fundamentals out for yourself.</p>
+<p>Okay, so I agree. Kubernetes is an exciting concept for those interested in the enterprise computing world and unless you&rsquo;ve been living under a rock for the past year, you have probably heard the name thrown around left, right and centre. In fact, this blog on its own does a pretty good job that. You then begin to delve into the documentation, which talks about the &lsquo;microservice architecture&rsquo; way of life and you start to think, &ldquo;What the Hell? How am I meant to just quickly develop my own microservices for the sake of trying out this platform?&rdquo;. Well this is how I felt, but unfortunately I didn&rsquo;t stumble upon a blog post like this that will now show you a fun way that you can try the fundamentals out for yourself.</p>
 <h4 id="what-ingredients-do-i-need-for-this-exercise">What ingredients do I need for this exercise?</h4>
 <p>All that is required is a google account with either some free credit for <a href="https://cloud.google.com/free">Google Cloud</a>, or a bank card attached. Not to worry though, the cost over the time required for the exercise should be no more than $5. It would also be handy if you had your own unique domain name, but this isn&rsquo;t crucial.</p>
+<p>
+  <figure>
+    <img src="/img/06-boutique/bargain.gif" alt="bargain">
+    <figcaption>if you&#39;re like me, value for money is key</figcaption>
+  </figure>
+
+
+The blog posts are only just the beginning&hellip;</p>
 <!-- raw HTML omitted -->
 <h2 id="lets-deploy-an-online-boutique">Let&rsquo;s deploy an Online Boutique</h2>
 <p>Right, let&rsquo;s begin. The first ingredient that we require on this exciting journey to our publically available shop for the boutique lovers of the world, is a suitably named &lsquo;classy&rsquo; cluster.</p>
@@ -131,13 +136,26 @@
 </span></span><span style="display:flex;"><span># press the big red button, declaring lift-off!
 </span></span></code></pre></div><!-- raw HTML omitted -->
 <p>Above you can see the output you should see in your terminal window upon calling these commands (I can only apologise for the scaling, but it shows you what to expect). As you can see, it finishes with the output of <code>kubeconfig entry generated for classy-cluster</code>. Fantastic news! Your cluster should now be addressable with the <code>kubectl get nodes</code> command, which lists the 5 nodes that we created. We&rsquo;re off to the races.</p>
-<!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/06-boutique/rumble.gif" alt="rumble">
+    <figcaption>Let&#39;s get ready to kubectllll</figcaption>
+  </figure>
+
+</p>
 <h3 id="time-to-get-boujie">Time to get Boujie</h3>
 <figure><img src="/img/06-boutique/boutique.svg"/>
 </figure>
 
 <p>Earlier in the post, I referred to an &lsquo;<a href="https://github.com/GoogleCloudPlatform/microservices-demo/">Online Boutique</a>&rsquo;, that is deployable on Kubernetes with a few simple steps. Well, this is in fact a demo application for Kubernetes, consisting of no less than 10 separate microservices. Once deployed, you can use the app to browse through some imaginary items, before adding them to a cart and purchasing. The best part is that on GKE, it is super easy to deploy, which makes it perfect for learning purposes.</p>
 <!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/06-boutique/architecture.png" alt="architecture">
+    <figcaption>What the boutique looks like under the hood.</figcaption>
+  </figure>
+
+</p>
 <p>In order to deploy this application, we must first perform a <code>git clone</code> of the github repository, so that we can save a copy of the required kubernetes manifests. This file, written in <a href="https://blog.stackpath.com/yaml/">yaml</a>, instructs to the kubernetes api-server which containers to run, where it can find them, as well as a selection of other parameters such as the ports to be used for the services, the resource requests/limits (cpu and memory) and much more. After cloning, navigate to the &lsquo;release&rsquo; directory, and open the <code>kubernetes-manifests.yaml</code> file, to take a look at the many kinds of declarations it features. This is the file we will be passing to the cluster with kubectl in a moment, so keep hold of it.</p>
 <p>Now that we have our manifests at the ready, we must now create a <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">namespace</a>. These are siphoned off areas of the cluster, intended to organise separate clusters and development teams that are working at the same time. liken them to rooms in a building, or sections in a library. By calling <code>kubectl create namespace boutique</code>, we can create a special little place for our application to sit. If you installed the <code>kubectx</code> application, the <code>kubens</code> command will come in handy here (e.g. <code>kubens boutique</code>). Otherwise, you can type something like <code>kubectl config set-context --current --namespace=boutique</code>, to switch to the <code>boutique</code> namespace using <code>kubectl</code>.</p>
 <p>Finally, let&rsquo;s go ahead and deploy our application on the cluster with the following command:</p>
@@ -154,7 +172,7 @@
 <h2 id="hey-check-out-my-store-at-35193255113-">Hey, check out my store at 35.193.255.113 😬</h2>
 <p><strong>Disclaimer: This section requires that you own a domain name that can be assigned to your cluster.</strong></p>
 <p>Yeah, I agree; we&rsquo;re not really going to just give all our pals this IP address on the back of a napkin. Sure, it works&hellip; but it doesn&rsquo;t sound very &lsquo;boutiquey&rsquo; if you ask me. I hear you say, &lsquo;oh, we can just map the IP with an A record to my domain name on the DNS&rsquo;. Well, you would be correct, but I have a more effective &lsquo;kubernetes way&rsquo; to do this part. Introducing the beauty of &lsquo;Ingress&rsquo;.</p>
-<p>This was discussed in the very <a href="https://whattheheptio.com/2020/02/first-posts/">first blog post</a> I made, so it may be worth going back and taking a look if you&rsquo;re interested. In esssence though, the ingress controller is a Kubernetes implementation that allows traffic to be directed to specific service endpoints on the cluster, based on parameters such as the domain and extension that has been entered by the user on the client end. This is very useful for handling a tonne of front-end services through one public facing load balancer (LB) IP address.</p>
+<p>This was discussed in the very <a href="https://blog.chaosinthe.dev/posts/first-posts/">first blog post</a> I made, so it may be worth going back and taking a look if you&rsquo;re interested. In esssence though, the ingress controller is a Kubernetes implementation that allows traffic to be directed to specific service endpoints on the cluster, based on parameters such as the domain and extension that has been entered by the user on the client end. This is very useful for handling a tonne of front-end services through one public facing load balancer (LB) IP address.</p>
 <p>My ingress controller of choice is <a href="https://github.com/projectcontour/contour">Contour</a>, and can simply be deployed using the command below. We will also check that the pods for the deployment are running correctly, as well as list the service of the <code>envoy</code> daemonset, which is the heart of the contour operation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
 </span></span><span style="display:flex;"><span># deploy contour
@@ -197,6 +215,13 @@
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">storage</span>: <span style="color:#ae81ff">10Gi</span>
 </span></span></code></pre></div><p>As you can see above, I have requested a persistent volume called &lsquo;redis-cart&rsquo;, using the storage class &lsquo;standard&rsquo;, which is the storage class installed by default in GKE for using Persistent Disks in GCE. The &lsquo;ReadWriteOnce&rsquo; declaration just means that it can only be mounted as read-write by a single node. This is the default mode and will work for this scenario. I have requested 10gb of storage, which is also plenty for this example. As usual, the <code>kubectl apply -f redis-cart-pvc.yaml</code> command is enough to get it attached to the cluster. We can check that the volume was created by checking for the <code>BOUND</code> status upon calling <code>kubectl get pvc</code>.</p>
 <!-- raw HTML omitted -->
+<p>
+  <figure>
+    <img src="/img/06-boutique/persistentvolume.png" alt="architecture">
+    <figcaption>The persistent volume, as seen in the Google Cloud Console.</figcaption>
+  </figure>
+
+</p>
 <p>Now to let the redis-cart deployment make use of this prime real-estate, we need to edit our original <code>kubernetes-manifests.yaml</code>. There are many objects in this file that we don&rsquo;t need to touch, but the section in question can be seen below, with the appropriate edits already in place. You will notice that at the bottom under <code>volumes:</code>, my yaml states a <code>persistentVolumeClaim</code>, as opposed to the original <code>EmptyDir</code>. This is where we need to set it to the name of our PV <code>redis-cart</code>, before saving the yaml file.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">### Changes made to Redis Cart so cart data is saved to PV ###</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
@@ -234,7 +259,7 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">125m</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">requests</span>:
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">70m</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">200Mi</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">0Mi</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">volumes</span>:                  <span style="color:#75715e"># Where we want to edit!</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis-data</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">persistentVolumeClaim</span>:
@@ -242,7 +267,7 @@
 </span></span></code></pre></div><p>Now finally we are ready to go ahead and call our final <code>kubectl apply -f kubernetes-manifests.yaml</code> to do what seemed unthinkable only minutes ago. You have now attached persistent storage to your redis cart! A quick call of <code>kubectl get pods</code> will show the pod in a running state. You can then add items to the basket and try deleting the pod. Once it comes back up, your redis database is back up off the canvas 🥊.</p>
 <h2 id="finishing-up-dont-forget-to-delete-your-cluster">Finishing Up (Don&rsquo;t forget to delete your cluster!)</h2>
 <p>All I can say after that one hell of a slog is congratulations for completing your first ever boutique quality Kubernetes project! We have taken a look into what is required to front up a public-cloud based cluster, as well as the initial steps that are taken to deploy an application using <code>kubectl</code>, before making it publically available.</p>
-<p>Now that we have come to the end of this post, you might want to delete the cluster to ensure you save your pennies for the next exciting run in with Google Cloud. If you want to take things a step further, I would suggest that you maybe look into securing your application with HTTPS traffic. For this you will need a TLS certificate, which can be achieved with ease, thanks to the <a href="https://github.com/jetstack/cert-manager">cert-manager</a> certificate management controller. Past that, you could maybe even take a look at creating a Grafana dashboard that monitors users navigating the site using <a href="https://whattheheptio.com/2020/03/04-prometheus/">Prometheus</a> to scrap metrics. Who knows, the world is your oyster!</p>
+<p>Now that we have come to the end of this post, you might want to delete the cluster to ensure you save your pennies for the next exciting run in with Google Cloud. If you want to take things a step further, I would suggest that you maybe look into securing your application with HTTPS traffic. For this you will need a TLS certificate, which can be achieved with ease, thanks to the <a href="https://github.com/jetstack/cert-manager">cert-manager</a> certificate management controller. Past that, you could maybe even take a look at creating a Grafana dashboard that monitors users navigating the site using <a href="https://blog.chaosinthe.dev/posts/04-prometheus/">Prometheus</a> to scrap metrics. Who knows, the world is your oyster!</p>
 <p>So, without further ado, let me sign off for this latest post, wishing you all the best wherever you are. Oh yes, without forgetting the command to kill the cluster. Cheerio!</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>gcloud container clusters delete classy-cluster 👋👋👋
 </span></span></code></pre></div></div></article>
