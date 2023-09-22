@@ -12,13 +12,6 @@ featured_image_preview: "/img/05-Velero/veleros.jpg"
 
 The open source tool that makes backing up your Kubernetes Cluster plain sailing!
 <!--more-->
-##### Todays Post Anthem
-<div align="centre"> 
- <iframe src="https://open.spotify.com/embed/track/6yfnmzXX7TQ3sfjr7jUNtb" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
- 
-*Please, don't you rock my boat (or kubernetes cluster) 
-🥁*
 
 Well surprise surprise, it looks like I'm back! Not at all the length of time that I was planning to be away for, but certain events (that I'm sure you will not want to spend another minute hearing about) led me to put our curious voyage together through the mystical universe of cloud-native, on the back burner for a little while. Now now, of course that does not mean that I haven't been exploring further; in fact, quite the contrary.
 
@@ -34,8 +27,8 @@ That's a great question! The past few weeks has actually given me a considerable
 ## Enough chit chat, tell me about Velero
 Okay, okay I hear you, listening to my invalid excuses isn't much fun for anyone. But funnily enough, neither is system failure. And what's worse than system failure? I'll tell you for free; system failure with no disaster recovery solution! No disaster recovery solution, mitigation, or protection, for the kubernetes empire that you have worked tirelessly to setup over many months, if not years. But this begs the question; if your workloads are running in ephemeral containers, why not treat your cluster as an ephemeral beast as well?
 
-### Ephemeral? What the Heptio?
-In the world of cloud native, containers by and large are treated to be ephemeral entities. In essence, this means their lifetime is viewed to be very short, before dying a valiant death. For this reason, data that we want to persist after a said death, to be used by the next container that comes along, is given its own dedicated resource to live in. For Kubernetes, this resource is called a persistent volume (PV), and solves many headaches. Try deploying [Grafana](https://whattheheptio.com/2020/03/04-prometheus/) dashboards on Kubernetes without any persistent storage; you'll see what I mean!
+### Ephemeral?
+In the world of cloud native, containers by and large are treated to be ephemeral entities. In essence, this means their lifetime is viewed to be very short, before dying a valiant death. For this reason, data that we want to persist after a said death, to be used by the next container that comes along, is given its own dedicated resource to live in. For Kubernetes, this resource is called a persistent volume (PV), and solves many headaches. Try deploying [Grafana](https://blog.chaosinthe.dev/posts/04-prometheus/) dashboards on Kubernetes without any persistent storage; you'll see what I mean!
 
 
 ### And my Kubernetes Manifests... Where are they stored? 💾
@@ -43,15 +36,10 @@ Aha! now you're asking some important questions. The Kubernetes [manifests](http
 
 So what happens when you have a single node etcd cluster that has its data corrupted? What happens when the power goes out in your house, and you power your cluster back on to find that your etcd node isn't responding? Well, of course i'm talking from experience, so I can tell you. You cry for a while, and then get up and say; looks like we'll have to just build all over again.
 
-<figure>
-<img src="/img/05-Velero/sandcastle.gif" />
-<figcaption>
-<h4>What happened to my old cluster? 😭</h4>
-</figcaption>
-</figure>
+![sand castle](/img/05-Velero/sandcastle.gif "what happened to my old cluster? 😭")
 
 ### Planning for the inevitable
-Well guess what, in the world of Kubernetes, disaster recovery is not something you should think about on day 2, or day 1... it should be thought out and implemented on day 0. The beauty of treating your containers as ephemeral, is that they can fail relatively frequently, and kubernetes will spin up new ones to take their place; mounting the persistent data in the appropriate places. But as highlighted by the etcd anecdote... my cluster would maybe benefit from taking some inspiration from this 'live fast, die young' attitude that the containers it runs have adopted. Its about time we designed our cluster with failure in mind. Wouldn't it be great to have our Kubernetes resources declaratively backed up in an automated fashion. Sounds great! Well... I hear you thinking "What the Heptio? How do I do that?"... Velero, take centre stage.
+Well guess what, in the world of Kubernetes, disaster recovery is not something you should think about on day 2, or day 1... it should be thought out and implemented on day 0. The beauty of treating your containers as ephemeral, is that they can fail relatively frequently, and kubernetes will spin up new ones to take their place; mounting the persistent data in the appropriate places. But as highlighted by the etcd anecdote... my cluster would maybe benefit from taking some inspiration from this 'live fast, die young' attitude that the containers it runs have adopted. Its about time we designed our cluster with failure in mind. Wouldn't it be great to have our Kubernetes resources declaratively backed up in an automated fashion. Sounds great! Well... I hear you thinking "How do I do that?"... Velero, take centre stage.
 
 
 ## Please don't you rock my boat ⛵️
@@ -78,7 +66,7 @@ From there, you need to setup and configure the object store, choosing from the 
 You will then need to perform a `velero install` command from your chosen client, with added parameters that describe your object store location. In my case the `install` command with flags looked like the following:
 
 ```console
-what@heptio:~$ velero install \    
+chaointhecrd@home:~$ velero install \    
     --provider aws \ # name of provider
     --plugins velero/velero-plugin-for-aws:v1.0.0 \ # the plugin velero needs to use for minio
     --bucket velero \ # the name of the minio bucket
@@ -101,11 +89,11 @@ Once the backup is shown as `Completed`, you can go ahead and start creating pro
 
 
 ```console
-what@heptio:~$ velero create backup weave --include-namespaces weave 
+chaosinthecrd@home:~$ velero create backup weave --include-namespaces weave 
 # creates the backup
-what@heptio:~$ velero get backups
+chaosinthecrd@home:~$ velero get backups
 # fetches the backups, and shows their status
-what@heptio:~$ kubectl delete ns weave
+chaosinthecrd@home:~$ kubectl delete ns weave
 # deletes the namespace... let the chaos begin
 ```
 #### 2. Don't panic, and fall back on Velero 🙆‍♂️
@@ -118,7 +106,7 @@ Fear not! We created our backup with Velero, and we're not afraid ot use it. A s
 {{< figure src="/img/05-Velero/velero-restore.gif">}}
 
 ```console
-what@heptio:~$ velero restore create --from-backup weave
+chaosinthecrd@home:~$ velero restore create --from-backup weave
 # All we need to get 'backup' and running 😏
 ```
 

@@ -11,26 +11,17 @@ featured_image_preview: "/img/06-boutique/boutique-banner.png"
 
 So you want to commandeer your very own kubernetes vessel... but don't know where to start? Look no further.
 <!--more-->
-##### Todays Post Anthem
-<div align="centre">        
- <iframe src="https://open.spotify.com/embed/track/37rKwjBHaZurlyPYy3Nqvz" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-*hey, want to go microservice shopping?* 🤦‍♂️
-
-
-Okay, so I agree. Kubernetes is an exciting concept for those interested in the enterprise computing world and unless you've been living under a rock for the past year, you have probably heard the name thrown around left, right and centre. In fact, this blog on its own does a pretty good job that. You then begin to delve into the documentation, which talks about the 'microservice architecture' way of life and you start to think, "What the Heptio? How am I meant to just quickly develop my own microservices for the sake of trying out this platform?". Well this is how I felt, but unfortunately I didn't stumble upon a blog post like this that will now show you a fun way that you can try the fundamentals out for yourself. 
+Okay, so I agree. Kubernetes is an exciting concept for those interested in the enterprise computing world and unless you've been living under a rock for the past year, you have probably heard the name thrown around left, right and centre. In fact, this blog on its own does a pretty good job that. You then begin to delve into the documentation, which talks about the 'microservice architecture' way of life and you start to think, "What the Hell? How am I meant to just quickly develop my own microservices for the sake of trying out this platform?". Well this is how I felt, but unfortunately I didn't stumble upon a blog post like this that will now show you a fun way that you can try the fundamentals out for yourself. 
 
 
 #### What ingredients do I need for this exercise?
 All that is required is a google account with either some free credit for [Google Cloud](https://cloud.google.com/free), or a bank card attached. Not to worry though, the cost over the time required for the exercise should be no more than $5. It would also be handy if you had your own unique domain name, but this isn't crucial.
 
 
-<figure>
-<img src="/img/06-boutique/bargain.gif" />
-<figcaption>
-<h4>If you're like me, value for money is key</h4>
-</figcaption>
-</figure>
+![bargain](/img/06-boutique/bargain.gif "if you're like me, value for money is key")
+The blog posts are only just the beginning...
+<!--more-->
 
 
 ## Let's deploy an Online Boutique
@@ -68,12 +59,8 @@ gcloud container clusters create classy-cluster \
 
 Above you can see the output you should see in your terminal window upon calling these commands (I can only apologise for the scaling, but it shows you what to expect). As you can see, it finishes with the output of `kubeconfig entry generated for classy-cluster`. Fantastic news! Your cluster should now be addressable with the `kubectl get nodes` command, which lists the 5 nodes that we created. We're off to the races.
 
-<figure>
-<img src="/img/06-boutique/rumble.gif" />
-<figcaption>
-<h4>Let's get ready to kubectlllll</h4>
-</figcaption>
-</figure>
+
+![rumble](/img/06-boutique/rumble.gif "Let's get ready to kubectllll")
 
 ### Time to get Boujie
 {{< figure src="/img/06-boutique/boutique.svg">}}
@@ -86,6 +73,8 @@ Earlier in the post, I referred to an '[Online Boutique](https://github.com/Goog
 <h4>What the boutique looks like under the hood.</h4>
 </figcaption>
 </figure>
+
+![architecture](/img/06-boutique/architecture.png "What the boutique looks like under the hood.")
 
 In order to deploy this application, we must first perform a `git clone` of the github repository, so that we can save a copy of the required kubernetes manifests. This file, written in [yaml](https://blog.stackpath.com/yaml/), instructs to the kubernetes api-server which containers to run, where it can find them, as well as a selection of other parameters such as the ports to be used for the services, the resource requests/limits (cpu and memory) and much more. After cloning, navigate to the 'release' directory, and open the `kubernetes-manifests.yaml` file, to take a look at the many kinds of declarations it features. This is the file we will be passing to the cluster with kubectl in a moment, so keep hold of it.
 
@@ -116,7 +105,7 @@ Now that we have all pods up and running, we can call `kubectl get services`, to
 
 Yeah, I agree; we're not really going to just give all our pals this IP address on the back of a napkin. Sure, it works... but it doesn't sound very 'boutiquey' if you ask me. I hear you say, 'oh, we can just map the IP with an A record to my domain name on the DNS'. Well, you would be correct, but I have a more effective 'kubernetes way' to do this part. Introducing the beauty of 'Ingress'.
 
-This was discussed in the very [first blog post](https://whattheheptio.com/2020/02/first-posts/) I made, so it may be worth going back and taking a look if you're interested. In esssence though, the ingress controller is a Kubernetes implementation that allows traffic to be directed to specific service endpoints on the cluster, based on parameters such as the domain and extension that has been entered by the user on the client end. This is very useful for handling a tonne of front-end services through one public facing load balancer (LB) IP address.
+This was discussed in the very [first blog post](https://blog.chaosinthe.dev/posts/first-posts/) I made, so it may be worth going back and taking a look if you're interested. In esssence though, the ingress controller is a Kubernetes implementation that allows traffic to be directed to specific service endpoints on the cluster, based on parameters such as the domain and extension that has been entered by the user on the client end. This is very useful for handling a tonne of front-end services through one public facing load balancer (LB) IP address.
 
 My ingress controller of choice is [Contour](https://github.com/projectcontour/contour), and can simply be deployed using the command below. We will also check that the pods for the deployment are running correctly, as well as list the service of the `envoy` daemonset, which is the heart of the contour operation. 
 
@@ -184,6 +173,9 @@ As you can see above, I have requested a persistent volume called 'redis-cart', 
 </figure>
 
 
+![architecture](/img/06-boutique/persistentvolume.png "The persistent volume, as seen in the Google Cloud Console.")
+
+
 Now to let the redis-cart deployment make use of this prime real-estate, we need to edit our original `kubernetes-manifests.yaml`. There are many objects in this file that we don't need to touch, but the section in question can be seen below, with the appropriate edits already in place. You will notice that at the bottom under `volumes:`, my yaml states a `persistentVolumeClaim`, as opposed to the original `EmptyDir`. This is where we need to set it to the name of our PV `redis-cart`, before saving the yaml file.
 
 ```yaml
@@ -223,7 +215,7 @@ spec:
             cpu: 125m
           requests:
             cpu: 70m
-            memory: 200Mi
+            memory: 0Mi
       volumes:                  # Where we want to edit!
       - name: redis-data
         persistentVolumeClaim:
@@ -236,7 +228,7 @@ Now finally we are ready to go ahead and call our final `kubectl apply -f kubern
 
 All I can say after that one hell of a slog is congratulations for completing your first ever boutique quality Kubernetes project! We have taken a look into what is required to front up a public-cloud based cluster, as well as the initial steps that are taken to deploy an application using `kubectl`, before making it publically available.
 
-Now that we have come to the end of this post, you might want to delete the cluster to ensure you save your pennies for the next exciting run in with Google Cloud. If you want to take things a step further, I would suggest that you maybe look into securing your application with HTTPS traffic. For this you will need a TLS certificate, which can be achieved with ease, thanks to the [cert-manager](https://github.com/jetstack/cert-manager) certificate management controller. Past that, you could maybe even take a look at creating a Grafana dashboard that monitors users navigating the site using [Prometheus](https://whattheheptio.com/2020/03/04-prometheus/) to scrap metrics. Who knows, the world is your oyster!
+Now that we have come to the end of this post, you might want to delete the cluster to ensure you save your pennies for the next exciting run in with Google Cloud. If you want to take things a step further, I would suggest that you maybe look into securing your application with HTTPS traffic. For this you will need a TLS certificate, which can be achieved with ease, thanks to the [cert-manager](https://github.com/jetstack/cert-manager) certificate management controller. Past that, you could maybe even take a look at creating a Grafana dashboard that monitors users navigating the site using [Prometheus](https://blog.chaosinthe.dev/posts/04-prometheus/) to scrap metrics. Who knows, the world is your oyster!
 
 So, without further ado, let me sign off for this latest post, wishing you all the best wherever you are. Oh yes, without forgetting the command to kill the cluster. Cheerio!
 

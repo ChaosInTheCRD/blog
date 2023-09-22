@@ -10,40 +10,27 @@ featured_image_preview: "/img/Antrea-03/frame.jpg"
 ---
 For the love of god... someone please tell me, what is a CNI?
 <!--more-->
-##### Todays Post Anthem
-<iframe src="https://open.spotify.com/embed/track/6t1XpYl81tdMVl0EfMZVv6" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-<sub> The pods are *tired of being alone...* Get it? Okay, okay, bad joke. </sub>
 
 Hello World! Welcome back 🎉 What a week (or two) it has been, full of yet more WTH moments. While there are many different cloud-native platforms, tools and services that I could centre this latest instalment around this week; I thought I’d take the opportunity to discuss an interesting project that I came across in my day to day life.
 
 Whilst deploying my first [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/) master node, I was faced with the decision of which pod network add-on to use 👀. Of course, WTH I thought. Yet another moment that I had my false sense of understanding extinguished 🧯. After doing a little bit of searching on the internet, I just found a bunch of people yelling 'use calico, it just works', so I decided heck why not, let's just do it.. I applied the yaml file I was prompted with, and away I went.
 
-<figure>
-<img src="/img/Antrea-03/KubernetesComic2.png" />
-<figcaption>
-<h4>Ok sure, the 'containers anywhere' model sounds great.. but how do they network? It can't be magic... </h4>
-</figcaption>
-</figure>
+![Kubernetes comic](/img/Antrea-03/KubernetesComic2.png "Ok sure, the 'containers anywhere' model sounds great.. but how do they network? It can't be magic... ")
 
 Fast forward a couple of days, and I heard the word 'Antrea'. If you've not figured it out by now, names like Tanzu, Octant, Istio, Helm, Prometheus and Antrea, have a certain ring to them that makes the mind go 'definitely some open-source project related to Kubernetes'. So of course I start asking more questions, and it turns out that Antrea is a pod networking add-on for Kubernetes; just in the way that Calico is 🤔. It was at this point that I thought, "ok sure... it seems that I must take the time to understand what this whole pod network add-on business means in the world of cloud-native, and work out what is going on". So good news, I'm going to drag you all along with me, let's go!
 
 ### Brief Side-Note
- The aim of this blog as a whole is to make it inclusive for all, so in my [first post](https://whattheheptio.com/2020/02/first-posts/), I added some links/content that step through the basics of containers and kubernetes. So don't fear, exciting content that will explain all is only a few clicks away!
+ The aim of this blog as a whole is to make it inclusive for all, so in my [first post](https://blog.chaosinthe.dev/posts/first-posts/), I added some links/content that step through the basics of containers and kubernetes. So don't fear, exciting content that will explain all is only a few clicks away!
 
-## What the Heptio is Pod Networking? 🔗
+## What is Pod Networking? 🔗
 So we're back to Kubernetes again (surprise, surprise). And this time we're taking a look at pod networking. So far in my Kubernetes voyage (sailing pun intended), I have tried to wrap my head around what every kubernetes object is, and how it stitches together. To be frank with you all, asking questions such as 'how do pods get assigned IPs' was not at the top of my list of curiosities 😂. As far as I was concerned initially, I started minikube or GKE, and all the networking just folded silently into the background.
 
 At a basic level, container networking is a mechanism through which containers can _optionally_ connect to other containers, hosts and external networks, like our good friend the internet. Simple capabilities are provided by our base layer container runtimes such as docker 🐳, but more advanced capabilities require additional drivers and plugins. Of course, on a platform such as kubernetes, designed to allow people to command, control, connect, and mould their micro-services in any which way they like, a smart networking solution is of high importance.
 
 So in a world where processes are spinning up, spinning down, shifting and changing all the time, in multiple places; a framework is required to manage and configure their networking. In a model like this it's required, as quite frankly... I don't back myself to keep up with the management of this stuff... do you? Therefore the container runtime utilises something called a Container Networking Interface (CNI), to handle all of this chaos!
 
-<figure>
-<img src="/img/Antrea-03/Alternatives.png" />
-<figcaption>
-<h4>Options for a CNI... Besides Antrea 🙃</h4>
-</figcaption>
-</figure>
+
+![Kubernetes comic](/img/Antrea-03/Alternatives.png "Options for a CNI... Besides Antrea 🙃")
 
 These plugins provision and manage the IPs of the containers within the runtime, and get informed when said container dies, so resources can be cleaned up. Of course the IPs provisioned for the containers are of a different format to what is seen for the hosts sitting on your home-lab network for instance. While your physical host that is running Kubernetes may have an IP subnet of '192.168.0.0/16', your pod network will likely use a subnet of the form '10.244.0.0/16' (this is what mine uses 😄). so this begs the question... "sure, two pods in a node can easily have a chat with one another... but what if that pod wants to talk to the node on their network... or even worse, what if they want to talk to a pod on another node 🤯?" Well, the plugin helps us out here by establishing a 'veth' virtual interface pair. one situated in the local pod network namespace,and another on a 'bridge', sitting in the hosts namespace. The bridge is a virtual switch that is capable of forwarding traffic between network segments, as we discussed above. I like to visualise these links sat on a bridge as akin to those gateways in stranger things between the real world and the upside down... except in this case we're travelling between network namespaces. If you haven't watched it then my compelling argument for you to is right there ✊.
 

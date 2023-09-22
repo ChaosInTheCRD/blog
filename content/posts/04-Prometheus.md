@@ -10,35 +10,21 @@ featured_image_preview: "/img/04-Prometheus/cockpit.jpg"
 ---
 Your cloud native empire will never have looked so beautiful...
 <!--more-->
-##### Todays Post Anthem
-<iframe src="https://open.spotify.com/embed/track/1PWnAEQcbwQwK759otUbta" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-*By 'writing'... of course I mean metrics...*
 
 In my last article, I mentioned an open-source platform called Prometheus. Now if you are in any way involved with the cloud native ecosystem, you will probably have come across it. After all, it shares its name with a Greek Titan that starred in one of the world famous 'Alien' movies 👽. But then I tell you that it is a monitoring and alerting toolkit that includes data scraping and storing, it's own querying language called 'PromQL' and a built in alert manager. Yes, that sounds great... but... what does that mean? Well here we go again!
 
-<figure>
-<img src="/img/04-Prometheus/prometheusmovie.gif" />
-<figcaption>
-<h4>That look the sysadmin makes when he first sees a graph of his cluster metrics on Prometheus</h4>
-</figcaption>
-</figure>
+![Prometheus Gif](/img/04-Prometheus/prometheusmovie.gif "That look the sysadmin makes when he first sees a graph of his cluster metrics on Prometheus")
 
-## Prometheus... What the Heptio? 🤷‍♂️
+## Prometheus... 🤷‍♂️
 Now let's build ourselves a scenario. You're like me, and you've just set up your first all singing, all dancing kubernetes cluster on GKE 🎵. Whether you know it or not (I definitely didn't to begin with), this is a very simple, turnkey experience. What I mean by this is that from go, a lot of the clusters components are setup for you, and their presence just fades into the background (within the darkest depths of the Google Cloud Platform 👻).
 
 You think to yourself, "I wonder how my cluster is performing... What pods are using up the most memory, how much traffic am I getting through my contour ingress controller?". Well.. that certainly is an interesting question. You have a scroll through the GCP web UI and the built in functions just throw it into your lap and you don't need to spare a second thought. But... where are those metrics really coming from? and if you hadn't asked yourself this question... and then spun up something more vanilla afterwards, like Kubeadm; why aren't these same capabilities just given to to me in the same way? Now we're talking 🕵🏻‍♂️.
 
-<figure>
-<img src="/img/04-Prometheus/GKEmonitoring.png" />
-<figcaption>
-<h4>How it all looks under the hood</h4>
-</figcaption>
-</figure>
+![Prometheus Gif](/img/04-Prometheus/GKEmonitoring.png "How the GKE Web UI Looks")
 
 [Prometheus](https://github.com/prometheus/prometheus) is a set of tools that you'll want to get for a thorough logging and monitoring experience on many container orchestrators. And what makes it so widely acclaimed? Well, a couple of things. First of all it has a powerfully simple querying language, so it's users can analyse their Kubernetes, Docker Swarm, Apache Mesos, Cloud Foundry... or just Kubernetes 🙃 clusters down to the minute details with ease.
 
-Whats more? Prometheus was the second project to be officially supported by the Cloud Native Computing Foundation, along with Kubernetes and Envoy (mentioned in the first article for this [blog](https://www.whattheheptio.com/2020/02/first-posts/), take a look). This support gives a company that plans to integrate its applications with Prometheus tooling, the assurance that it will be an industry standard going into the future.  For this reason, this makes it a perfect candidate for a metrics provider, and it has seen wide spread adoption; with people speculating that the number of organisations using it could be in the tens of thousands.
+Whats more? Prometheus was the second project to be officially supported by the Cloud Native Computing Foundation, along with Kubernetes and Envoy (mentioned in the first article for this [blog](https://blog.chaosinthe.dev/posts/first-posts/), take a look). This support gives a company that plans to integrate its applications with Prometheus tooling, the assurance that it will be an industry standard going into the future.  For this reason, this makes it a perfect candidate for a metrics provider, and it has seen wide spread adoption; with people speculating that the number of organisations using it could be in the tens of thousands.
 
 ## So how is all of this possible?
 
@@ -49,12 +35,8 @@ So as I said in the previous section, Prometheus is far more than a Kubernetes c
 
 Ok, so how does Prometheus get hold of these metrics that are now spilling out of the configured port? Well, Prometheus has a server application conveniently named 'Prometheus Server', that 'scrapes' up the metrics sitting on the aforementioned ports, organises them into a time series database (TSDB), and throws it into a storage volume somewhere, amazing 
 
-<figure>
-<img src="/img/04-Prometheus/PromArch.png" />
-<figcaption>
-<h4>How it all looks under the hood</h4>
-</figcaption>
-</figure>
+
+![Prometheus Gif](/img/04-Prometheus/PromArch.png "How it all looks under the hood")
 
 ### But I thought you said there was an alert manager?
 Oh yes, you're right there. Prometheus does indeed have its own dedicated alert manager. Embedded within the Prometheus server are capabilities that allow the user to define alerting rules based on the metrics provide by the cluster. For instance, want to know when there is high request latency for a web page on your server? No problem. This can be done easily if you give the server a correctly configured alert rules yaml. For example:
@@ -80,12 +62,9 @@ Once this has been deployed to the prometheus server, any metrics that meet thes
 ## PromQL... Where the real fun begins 🕺
 
 As I mentioned, the Alertmanager does have it's own dedicated web-ui, and so does the Prometheus server. When you access the Prometheus web-ui (through a default port of 9090), you're faced with a pretty simple, yet bland looking interface. It has a simple text input box labelled 'Expression', with a button below it that says 'Execute'. Very exciting, let's start playing.
-<figure>
-<img src="/img/04-Prometheus/PromGUI.png" />
-<figcaption>
-<h4>How it all looks under the hood</h4>
-</figcaption>
-</figure>
+
+{{< figure src="/img/04-Prometheus/PromGUI.png">}}
+
 So by 'Expression', Prometheus means that it intends for the user to input syntax that 'queries' for some metrics sitting on the Prometheus Database (TSDB). This will be your way of telling prometheus, "hey, fetch me the CPU utilisation data of all the containers running on my kubernetes cluster, and return it organised in a certain way. Then finally if all goes well, it'll plot that data in the graph box sat below in the GUI. But just like a any extraterrestrial being, you must ask yourself 'what language does it speak?'. Well thankfully, it isn't Clingon. In fact, its querying language, PromSQL, is one of the reasons why this tool has found such popularity. As you can see below, the syntax is actually very simple to understand.. a.k.a it's pretty much in plain english, hoorah! If you haven't deduced already, this example fetches the amount of http GET requests taking place in the staging, testing and development environments... easy 😂.
 
 ``` PromSQL
@@ -107,6 +86,8 @@ It's time for another mystical platform name into the mix... it's slick, it's sh
 <h4>I know right?</h4>
 </figcaption>
 </figure>
+
+![](/img/04-prometheus/Grafana.png "I know right?")
 
 So welcome to the magical land of [Grafana](https://github.com/grafana/grafana). Where you can make use of PromSQL and the prometheus server APIs to visualise your generated metrics on highly configurable dashboards. That's right, we've just taken your Starship Enterprise to the next level 🛰. Each dashboard consists of one or more panels that can be arranged into rows. Of course usually each panel on the dashboard is related to each other. So you would have for instance a dashboard of panels for information regarding your kubernetes clusters CPU/Mem/Disk utilisation, and another dashboard that displays the ingresses of your applications sitting within the cluster. Then you could even have another dashboard that showed the geographical location of each request to your site in real time... yes I absolutely need to look into doing it for this site 🙌. The sky really is the limit... if it's data that can be hoovered up by prometheus into the database, it can be visualised on Grafana with some configuration. And what's even cooler? You can make specific dashboards public so that you can show them to friends... or uh... colleagues easily. Don't worry though, you will still have full access to your precious infrastructure under lock and key.
 

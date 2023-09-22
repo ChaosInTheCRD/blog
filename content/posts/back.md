@@ -15,7 +15,9 @@ My name is Tom. I am 26 years old, I am 6 ft 1 inches tall, and I weigh 86 kilog
 
 **How it started**
 
-My first memory of having a problem was on the rugby pitch. I was in a training session and ran into a [ruck](https://en.wikipedia.org/wiki/Rugby_union_gameplay#Ruck) to defend against invisible opposition. I went into a [low position](https://images.squarespace-cdn.com/content/v1/5ad26159b105986b9a9bddfc/1566580267847-VJXQL1Y8ZOZE7E96HNX5/rickball.jpg?format=1000w) as I had been instructed since a small child, and all of a sudden I felt a pain that sent me to the floor. It seemed to be coming from the lower back, but it also spread across my glute muscles and it seemed like a knife was being twisted in the very middle of the bottom of my spine. Back then (as is the typical nature of some rugby coaches), I was told that I should either man up or get the hell off the pitch. It was then that I proceeded to hobble (barely) to the nearest building to find somewhere to lie prone until I could figure out my next move. After managing to get home with some assistance, I had a hot bath and slept until the next day. Simple tasks that required a range of movement like putting on socks and shoes were difficult and painful, but this eventually subsided after a week or so (sometimes it can be longer), albeit with a physio session in the middle which really didn't do much to help me understand the problem.
+My first memory of having a problem was on the rugby pitch. I was in a training session and ran into a [ruck](https://en.wikipedia.org/wiki/Rugby_union_gameplay#Ruck) to defend against invisible opposition. I went into a low position (see below) as I had been instructed since a small child, and all of a sudden I felt a pain that sent me to the floor. It seemed to be coming from the lower back, but it also spread across my glute muscles and it seemed like a knife was being twisted in the very middle of the bottom of my spine. Back then (as is the typical nature of some rugby coaches), I was told that I should either man up or get the hell off the pitch. It was then that I proceeded to hobble (barely) to the nearest building to find somewhere to lie prone until I could figure out my next move. After managing to get home with some assistance, I had a hot bath and slept until the next day. Simple tasks that required a range of movement like putting on socks and shoes were difficult and painful, but this eventually subsided after a week or so (sometimes it can be longer), albeit with a physio session in the middle which really didn't do much to help me understand the problem.
+
+![ruck position](/img/back/ruck.png "the aforementioned low 'ruck position'")
 
 The scenario that I explained above is what I now call a "flare up". These "flare up"'s have come and gone over the years. It is my belief at least that in my school and university years, they occurred very infrequently (I am only going from memory). However, I have had some periods in my life where the problem just doesn't seem to go away (like the last few months). I have had other times where I have been immobilized in other areas (e.g., front of the leg), and upon inspection of physio I was told that it is all tied into issues with my lower back.
 
@@ -27,13 +29,18 @@ During my time at this job, I started a bit of a revolution in my personal fitne
 
 **The next job: An ongoing saga**
 
-Fast forward to my next job. On my first day I was flown to Cork in the Republic of Ireland for 6 weeks of ~~drinking~~ training. Down I sat in the conference room with the standard chair (you know [the kind](https://www.furniture-work.co.uk/4-pack-of-black-frame-conference-chairs.html#984=201?1083=2064&gclid=CjwKCAiAwc-dBhA7EiwAxPRylGIHVSL-AYojP3bakR8Ik_1-TUujPQkfRmqJIf5jBMnQOgvEvsTNwhoCGXAQAvD_BwE)) and on the 2nd 8 hour day, around 5 hours in, the pain started. It actually started in my neck this time around, but eventually the problem spread and before I knew it my lower back joined the party. I went to see a physio whilst in Ireland, and I spent the rest of the trip trying to get it back in a state where I wasn't in pain.
+Fast forward to my next job. On my first day I was flown to Cork in the Republic of Ireland for 6 weeks of ~~drinking~~ training. Down I sat in the conference room with the standard chair (see below) and on the 2nd 8 hour day, around 5 hours in, the pain started. It actually started in my neck this time around, but eventually the problem spread and before I knew it my lower back joined the party. I went to see a physio whilst in Ireland, and I spent the rest of the trip trying to get it back in a state where I wasn't in pain.
+
+![horrid chair](/img/back/chair.png "The dreaded conference chair")
 
 Upon arriving back in London after my induction, I had another mandatory assessment. This time around I was more prepared to listen. After all, I had been through a painful time, and this time I wanted to get it right. Unfortunately I was not much more prepared to listen than I had been at my previous employer. However, I began to appreciate the importance of "ergonomics". I need to make sure while I slave away at my brand new jobs, that I sit in the "proper position". Getting the right chair and the right accessories.
 
 **Solving my problem**
 
 In order to combat back pain once starting at my current employer, I made investments into home office equipment that I thought would be my saviour. An Expensive chair with a sexy name like "aeron" for hefty price tags that would put me in an ergonomic position so I can sit for hours to my heart's content. Couple that with a monitor arm to put my neck at the right height and we are all good right? No slouching, no perching, no sitting with my legs crossed (I can't do that anyhow), these are exactly what I need to be avoiding.
+
+
+![mishter bohnd](/img/back/bond-aeron.jpg "james bond sat next to a sexy aeron")
 
 **Or so I thought**
 
