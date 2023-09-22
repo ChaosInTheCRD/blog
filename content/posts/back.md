@@ -9,6 +9,8 @@ featured_image: "/img/back/back.md"
 featured_image_preview: "/img/back/back.md"
 ---
 
+![someone asking for back problems](/img/back/back.png "someone asking for back problems")
+
 **Note:** I don't know everything about how to prevent back pain from work, I am no expert. This is simply my learnings from my experience. If you disagree with anything written in here, or feel like I am misinformed, please leave a comment on the post.
 
 My name is Tom. I am 26 years old, I am 6 ft 1 inches tall, and I weigh 86 kilograms (with 0.8 kilograms added on due to too much cheese at christmas). Like 8 out of 10 people in the world on average, I have unfortunately experienced back pain since I was 15 years old.
